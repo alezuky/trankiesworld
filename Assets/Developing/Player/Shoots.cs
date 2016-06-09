@@ -72,7 +72,7 @@ public class Shoots : MonoBehaviour
 			Debug.Log ("Poiting");
 						if (firstShoot) {
 								rays [raycount] = Instantiate (ray, firelocal, Quaternion.LookRotation (kinect.GetDirection ())) as GameObject;
-								rays[raycount].GetComponent<Renderer>().material.color = kinect.color;
+								//rays[raycount].GetComponent<Renderer>().material.color = kinect.color;
 								//rays[raycount].GetComponent<Light>().color = kinect.color;
 								firstShoot = false;
 								Debug.Log ("Instantiating Pointer");
