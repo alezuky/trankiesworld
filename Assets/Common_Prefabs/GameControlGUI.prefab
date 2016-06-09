@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &172746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 472746}
+  - 114: {fileID: 11472746}
+  - 114: {fileID: 11472750}
+  - 114: {fileID: 11472748}
+  m_Layer: 0
+  m_Name: GameControlGUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &472746
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172746}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.3251324, y: -2.96532893, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11472746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d30864d707b6a43b676b5c86e967e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1points: 0
+  p2points: 0
+  suddenDeath: 0
+  win: 0
+  winner: 0
+  skin: {fileID: 11400000, guid: a210c7d8e8361874894b3e6857d7aa3e, type: 2}
+  playerWidthBox: 70
+  playerHeightBox: 70
+  playerOffsetBox: 10
+  victory: {fileID: 8300000, guid: 790dbf37cdd470e41ae07cca3e336455, type: 3}
+--- !u!114 &11472748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bdf5c2e37bc2124ba0267a6275fda43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTime: 60
+  skin: {fileID: 11400000, guid: 6604de631e1168e47b40a1471f9fe9a4, type: 2}
+--- !u!114 &11472750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172746}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdef48de71d93f040b7b8a8e2620cbe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kinect: {fileID: 0}
+  handsClosed: 0
+  skin: {fileID: 11400000, guid: 6604de631e1168e47b40a1471f9fe9a4, type: 2}
+  SetRestart: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 172746}
+  m_IsPrefabParent: 1
