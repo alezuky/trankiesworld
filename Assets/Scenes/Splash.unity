@@ -136,91 +136,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df4031379e5be6d4cbd297110532041e, type: 2}
-  m_RootGameObject: {fileID: 237628239}
   m_IsPrefabParent: 0
---- !u!1 &237628239
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 148868, guid: df4031379e5be6d4cbd297110532041e, type: 2}
-  m_PrefabInternal: {fileID: 214988264}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 237628241}
-  - 114: {fileID: 237628240}
-  - 114: {fileID: 237628242}
-  m_Layer: 0
-  m_Name: Kinect
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &237628240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11448868, guid: df4031379e5be6d4cbd297110532041e,
-    type: 2}
-  m_PrefabInternal: {fileID: 214988264}
-  m_GameObject: {fileID: 237628239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b531f336dfee5f438f94ed501caefc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1added: 0
-  player2added: 0
-  player1tracked: 0
-  player2tracked: 0
-  splash: 1
-  sensorHeight: 1
-  sensorAngle: 0
-  computeUserMap: 1
-  computeColorMap: 1
-  computeInfraredMap: 1
-  displayUserMap: 1
-  displayColorMap: 1
-  displaySkeletonLines: 1
-  DisplayMapsWidthPercent: 15
-  useMultiSourceReader: 0
-  minUserDistance: 1
-  maxUserDistance: 0
-  detectClosestUser: 1
-  ignoreInferredJoints: 1
-  smoothing: 1
-  useBoneOrientationConstraints: 0
-  allowHandRotations: 0
-  avatarControllers: []
-  playerCommonGestures: 
-  minTimeBetweenGestures: .699999988
-  gestureListeners: []
-  calibrationText: {fileID: 0}
---- !u!4 &237628241
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 448868, guid: df4031379e5be6d4cbd297110532041e, type: 2}
-  m_PrefabInternal: {fileID: 214988264}
-  m_GameObject: {fileID: 237628239}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
---- !u!114 &237628242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11482890, guid: df4031379e5be6d4cbd297110532041e,
-    type: 2}
-  m_PrefabInternal: {fileID: 214988264}
-  m_GameObject: {fileID: 237628239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a68884871184c6418fda908872d894f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseplatform: {fileID: 100146, guid: 4693cdf05e6912446a32e53982bc7f00, type: 2}
-  player: {fileID: 0}
-  isPaused: 0
 --- !u!1 &664800150
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +223,7 @@ MonoBehaviour:
   m_SubmitButton: 5375626d6974
   m_CancelButton: 43616e63656c
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &988202989
 MonoBehaviour:

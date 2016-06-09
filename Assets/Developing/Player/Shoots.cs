@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Shoots : MonoBehaviour
 {
+		private bool safetyTime = false;
 
 		public GameObject projectile = null;
 		public float projectileforce  = 15000f;
@@ -29,17 +30,27 @@ public class Shoots : MonoBehaviour
 		public Animator anim;
 		int shootHash = Animator.StringToHash("shoot");
 
+	IEnumerator SafetyTime() {
+		yield return new WaitForSeconds(3.0f);
+		safetyTime = true;		
+	}
+
+
 	void Awake ()
 		{
-				anim = gameObject.GetComponent<Animator> ();
+
+		anim = gameObject.GetComponent<Animator> ();
+		firecooldown = 1f;
+		firetimer = 0;
+		firstShoot = true;
+
 		}
 		
 		void Start ()
 		{
 
-				firecooldown = 1f;
-				firetimer = 0;
-				firstShoot = true;
+
+				StartCoroutine("SafetyTime");
 
 				// Matches with the script for Kinect
 				kinect = this.GetComponent<GestureListener> ();
@@ -150,7 +161,7 @@ public class Shoots : MonoBehaviour
 
 
 	public void Fire () {
-		if (firetimer > firecooldown) {
+		if (safetyTime && firetimer > firecooldown) {
 
 			GameObject objectProjectile = Instantiate (projectile, firelocal, transform.rotation) as GameObject;
 			Projectile proj = objectProjectile.GetComponent("Projectile") as Projectile;

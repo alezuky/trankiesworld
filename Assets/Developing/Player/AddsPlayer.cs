@@ -106,11 +106,16 @@ public class AddsPlayer : MonoBehaviour {
 					manager.player1added = true;
 					manager.player1tracked = true;
 					manager.p1 = UserId;
+					this.gameObject.GetComponent<Shoots>().enabled = true;
+
 					}
 				if (String.Compare (player, "Player_2") == 0) {
 					manager.player2added = true;
 					manager.player2tracked = true;
 					manager.p2 = UserId;
+
+					this.gameObject.GetComponent<Shoots>().enabled = true;
+
 					}
 
 		}
