@@ -20,32 +20,36 @@ public class Pause : MonoBehaviour {
 
 public void PauseGame ( int p )
 	{
-		isPaused = true;
-		cam = GameObject.Find ("Main Camera").GetComponent<Zoom>();
+		//Pause in SpaceShip Level is causing problems. Removing it for a while
+		if (string.Compare (Application.loadedLevelName, "Spaceship_Level") != 0) {
 
-		Debug.Log ("Game Paused player: " + p);
-		if (p == 1) {
-			player = GameObject.Find ("Player_1");
-			otherplayer = GameObject.Find ("Player_2");
+			isPaused = true;
+			cam = GameObject.Find ("Main Camera").GetComponent<Zoom> ();
 
-		} else if (p == 2) {
-			player = GameObject.Find ("Player_2");
-			otherplayer = GameObject.Find ("Player_1");
+			Debug.Log ("Game Paused player: " + p);
+			if (p == 1) {
+				player = GameObject.Find ("Player_1");
+				otherplayer = GameObject.Find ("Player_2");
+
+			} else if (p == 2) {
+				player = GameObject.Find ("Player_2");
+				otherplayer = GameObject.Find ("Player_1");
+			}
+
+			originalposition = player.transform.position;
+			otheroriginalposition = otherplayer.transform.position;
+
+
+
+			otherplayer.GetComponent<Renderer> ().enabled = false;
+			otherplayer.GetComponent<Collider> ().isTrigger = true;
+			otherplayer.GetComponent<Rigidbody> ().useGravity = false;
+			otherplayer.GetComponent<GestureListener> ().enabled = false;
+
+			GameObject platform = Instantiate (pauseplatform, GameObject.Find ("PausePosition").transform.position, this.transform.rotation) as GameObject;
+			player.transform.position = platform.transform.position;
+			cam.Zoomat (player);
 		}
-
-		originalposition = player.transform.position;
-		otheroriginalposition = otherplayer.transform.position;
-
-
-
-		otherplayer.GetComponent<Renderer>().enabled = false;
-		otherplayer.GetComponent<Collider>().isTrigger = true;
-		otherplayer.GetComponent<Rigidbody>().useGravity = false;
-		otherplayer.GetComponent<GestureListener>().enabled = false;
-
-		GameObject platform = Instantiate (pauseplatform, GameObject.Find ("PausePosition").transform.position, this.transform.rotation ) as GameObject;
-		player.transform.position = platform.transform.position;
-		cam.Zoomat (player);
 	}
 
 	public void ContinueGame ( int p )
