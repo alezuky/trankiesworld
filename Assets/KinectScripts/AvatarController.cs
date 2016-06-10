@@ -103,7 +103,7 @@ public class AvatarController : MonoBehaviour
 		// Get the KinectManager instance
 		if(kinectManager == null)
 		{
-			kinectManager = KinectManager.Instance;
+			kinectManager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 		}
 		
 		// move the avatar to its Kinect position

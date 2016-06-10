@@ -42,6 +42,14 @@ public class Shoots : MonoBehaviour
 	void Awake ()
 		{
 
+		// Matches with the script for Kinect
+		kinect = this.GetComponent<GestureListener> ();
+
+
+		if (string.Compare (Application.loadedLevelName, "Spaceship_Level") == 0 && kinect.tracked == false) {
+			this.enabled = false;
+		}
+
 		anim = gameObject.GetComponent<Animator> ();
 		firecooldown = 1f;
 		firetimer = 0;
@@ -52,12 +60,7 @@ public class Shoots : MonoBehaviour
 		void Start ()
 		{
 
-
 				StartCoroutine("SafetyTime");
-
-				// Matches with the script for Kinect
-				kinect = this.GetComponent<GestureListener> ();
-
 
 		}
 

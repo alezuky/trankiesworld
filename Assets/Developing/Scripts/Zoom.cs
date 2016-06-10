@@ -17,7 +17,7 @@ public class Zoom : MonoBehaviour {
 
 	void Awake()
 	{
-		pause = GameObject.Find ("Kinect").GetComponent<Pause> ();
+		pause = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<Pause> ();
 	}
 
 

@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour {
 		Destroy (this.gameObject, duration);
 		shotcounter = 0;
 
-		if (GameObject.Find ("GameControlGUI") == null || GameObject.Find ("Kinect").GetComponent<Pause> ().isPaused == true)
+		if (GameObject.Find ("GameControlGUI") == null || GameObject.FindGameObjectWithTag ("Kinect").GetComponent<Pause> ().isPaused == true)
 			mainmenu = true;
 
 	}

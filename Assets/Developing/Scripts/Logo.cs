@@ -21,7 +21,7 @@ public class Logo : MonoBehaviour {
 		//Set the game to the correct resolution
 		Screen.SetResolution(1280, 720, true);
 
-		manager = GameObject.Find ("Kinect").GetComponent<KinectManager> () ?? KinectManager.Instance;
+		manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 
 		StartCoroutine("LoadGame");
 	}

@@ -20,7 +20,7 @@ public class JointOrientationView : MonoBehaviour
 	
 	void Update () 
 	{
-		KinectManager manager = KinectManager.Instance;
+		KinectManager manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 		
 		if(manager && manager.IsInitialized())
 		{

@@ -322,7 +322,7 @@ public class FacetrackingManager : MonoBehaviour
 		try 
 		{
 			// get sensor data
-			KinectManager kinectManager = KinectManager.Instance;
+			KinectManager kinectManager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 			if(kinectManager && kinectManager.IsInitialized())
 			{
 				sensorData = kinectManager.GetSensorData();
@@ -404,7 +404,7 @@ public class FacetrackingManager : MonoBehaviour
 	{
 		if(isFacetrackingInitialized)
 		{
-			KinectManager kinectManager = KinectManager.Instance;
+			KinectManager kinectManager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 			if(kinectManager && kinectManager.IsInitialized())
 			{
 				primaryUserID = kinectManager.GetPrimaryUserID();

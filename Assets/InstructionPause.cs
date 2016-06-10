@@ -22,9 +22,9 @@ public class InstructionPause : MonoBehaviour {
 
 	void Awake (){
 
-		manager = GameObject.Find ("Kinect").GetComponent<KinectManager> () ?? KinectManager.Instance;
+		manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 
-		pause = GameObject.Find ("Kinect").GetComponent<Pause> ();
+		pause = GameObject.FindGameObjectWithTag("Kinect").GetComponent<Pause> ();
 
 		}
 
@@ -58,6 +58,8 @@ public class InstructionPause : MonoBehaviour {
 	
 
 	void Update (){
+
+		manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 
 		if (manager.player1tracked == true)
 		{

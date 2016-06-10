@@ -126,14 +126,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11448868, guid: df4031379e5be6d4cbd297110532041e, type: 2}
-      propertyPath: DisplayMapsWidthPercent
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11448868, guid: df4031379e5be6d4cbd297110532041e, type: 2}
-      propertyPath: displaySkeletonLines
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df4031379e5be6d4cbd297110532041e, type: 2}
   m_IsPrefabParent: 0
@@ -194,7 +186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &988202987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: 486f72697a6f6e74616c
   m_VerticalAxis: 566572746963616c
-  m_SubmitButton: 5375626d6974
+  m_SubmitButton: 
   m_CancelButton: 43616e63656c
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5

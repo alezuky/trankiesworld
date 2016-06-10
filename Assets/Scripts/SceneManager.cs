@@ -21,12 +21,15 @@ public class SceneManager : MonoBehaviour {
 	public Animator panelP2;
 
 	void Awake() {
-		manager = GameObject.Find("Kinect").GetComponent<KinectManager>() ?? KinectManager.Instance;
+		manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 		panelP1.SetBool("A_P1", true);
 		panelP2.SetBool("A_P2", true);
 	}
 
 	void Update() {
+
+		manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
+
 		if (manager.player1added && !elevatorP1.enabled) {
 			timerP1.SetBool("PlayerActive", true);
 			panelP1.SetBool("A_P1", false);

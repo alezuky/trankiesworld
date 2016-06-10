@@ -74,7 +74,7 @@ public class JointPositionsFilter
     // Resets the filter to default values.
     public void Reset()
     {
-		KinectManager manager = KinectManager.Instance;
+		KinectManager manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 		this.history = new FilterDoubleExponentialData[manager.GetSensorBodyCount(), manager.GetSensorJointCount()];
     }
 
@@ -92,7 +92,7 @@ public class JointPositionsFilter
 		tempSmoothingParams.correction = this.smoothParameters.correction;
 		tempSmoothingParams.prediction = this.smoothParameters.prediction;
 
-		KinectManager manager = KinectManager.Instance;
+		KinectManager manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 		int bodyCount = manager.GetSensorBodyCount();
 
 		for(int bodyIndex = 0; bodyIndex < bodyCount; bodyIndex++)
@@ -107,7 +107,7 @@ public class JointPositionsFilter
 	// Update the filter for all body joints
 	private void FilterBodyJoints(ref KinectInterop.BodyData bodyData, int bodyIndex, ref KinectInterop.SmoothParameters tempSmoothingParams)
 	{
-		KinectManager manager = KinectManager.Instance;
+		KinectManager manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 		int jointsCount = manager.GetSensorJointCount();
 
 		for(int jointIndex = 0; jointIndex < jointsCount; jointIndex++)

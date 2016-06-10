@@ -143,7 +143,7 @@ public class BoneOrientationsConstraint
     // ApplyBoneOrientationConstraints and constrain rotations.
 	public void Constrain(ref KinectInterop.BodyData bodyData)
     {
-		KinectManager manager = KinectManager.Instance;
+		KinectManager manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 
         for (int i = 0; i < this.jointConstraints.Count; i++)
         {

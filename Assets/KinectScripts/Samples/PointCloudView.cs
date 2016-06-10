@@ -28,7 +28,7 @@ public class PointCloudView : MonoBehaviour
 
     void Start()
     {
-		manager = KinectManager.Instance;
+		manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 
 		if (manager != null)
         {

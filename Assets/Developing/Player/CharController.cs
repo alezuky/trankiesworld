@@ -37,8 +37,16 @@ public class CharController : MonoBehaviour {
 	private Rigidbody body;
 
 	void Awake() {
-		playing = true;
+
+		// Matches with the script for Kinect
 		kinect = this.GetComponent<GestureListener>();
+
+
+		if (string.Compare (Application.loadedLevelName, "Spaceship_Level") == 0) {
+			this.enabled = false;
+		} 
+
+		playing = true;
 		anim = gameObject.GetComponent<Animator>();
 
 		propulsionForce= 950f;
@@ -46,6 +54,9 @@ public class CharController : MonoBehaviour {
 	}
 	
 	void Start() {
+
+
+
 		body = GetComponent<Rigidbody>();
 		
 		//set the jump Timer
@@ -64,10 +75,8 @@ public class CharController : MonoBehaviour {
 		//setup feel:
 		Physics.gravity = new Vector3(0, -60, 0);
 		body.angularDrag = 0.9f;
-		body.drag = 0.9f;
-		
-		// Matches with the script for Kinect
-		kinect = this.GetComponent<GestureListener>();
+		body.drag = 0.9f;	
+
 		
 		//saves the origin of the character
 		startposition = transform.position;

@@ -242,7 +242,7 @@ public class InteractionManager : MonoBehaviour
 	
 	void Update () 
 	{
-		KinectManager kinectManager = KinectManager.Instance;
+		KinectManager kinectManager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 		
 		// update Kinect interaction
 		if(kinectManager && kinectManager.IsInitialized())

@@ -19,7 +19,7 @@ public class ProvTrainingLevel : MonoBehaviour {
 	void Start () {
 		
 		StartCoroutine("LoadGame");
-		manager = GameObject.Find ("Kinect").GetComponent<KinectManager> () ?? KinectManager.Instance;
+		manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 		manager.splash = true;
 	}
 	

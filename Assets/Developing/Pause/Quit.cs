@@ -84,7 +84,7 @@ public class Quit : MonoBehaviour {
 					//right hand -> CONTINUE
 					if (kinect.SetFire ()) {
 						//SendMessageUpwards("RestartGame");
-						GameObject.Find ("Kinect").GetComponent<Pause> ().ContinueGame (kinect.player);
+						GameObject.FindGameObjectWithTag ("Kinect").GetComponent<Pause> ().ContinueGame (kinect.player);
 					}
 					// left hand -> Quit
 					if (kinect.Propulsion ()) {

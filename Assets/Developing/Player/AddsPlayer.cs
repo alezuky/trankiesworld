@@ -22,13 +22,14 @@ public class AddsPlayer : MonoBehaviour {
 
 	void Start ()
 	{
-
-		manager = GameObject.Find ("Kinect").GetComponent<KinectManager> () ?? KinectManager.Instance;
-
-		//Links the body data to the manager
-		manager = GameObject.Find("Kinect").GetComponent<KinectManager>();
+		manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 		bodyFrame = manager.bodyFrame;
+	}
 
+	void FixedUpdate ()
+	{
+		manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
+		bodyFrame = manager.bodyFrame;
 	}
 
 	// check if the calibration pose is complete for given user

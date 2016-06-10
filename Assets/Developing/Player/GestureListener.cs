@@ -36,7 +36,7 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 
 	void Start ()
 	{
-		manager = GameObject.Find ("Kinect").GetComponent<KinectManager> () ?? KinectManager.Instance;
+		manager =  GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 
 		if (String.Compare (gameObject.name, "Player_1") == 0)
 		{
@@ -112,6 +112,8 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 
 
 	void FixedUpdate () {
+
+		manager =  GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 
 		if (manager.GetComponent<Pause> ().isPaused == false && requestforpause == true) {
 			requestforpause = false;

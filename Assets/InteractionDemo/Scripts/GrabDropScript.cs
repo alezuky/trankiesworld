@@ -138,7 +138,7 @@ public class GrabDropScript : MonoBehaviour
 			}
 			else
 			{
-				KinectManager kinectManager = KinectManager.Instance;
+				KinectManager kinectManager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 
 				if(kinectManager && kinectManager.IsInitialized())
 				{

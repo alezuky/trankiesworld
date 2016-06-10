@@ -12,7 +12,7 @@ public class SetSceneAvatars : MonoBehaviour
 
 	void Start () 
 	{
-		KinectManager manager = KinectManager.Instance;
+		KinectManager manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 		
 		if(manager)
 		{

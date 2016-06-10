@@ -19,7 +19,7 @@ public class Credits : MonoBehaviour {
 	void Start () {
 		
 			StartCoroutine("LoadGame");
-		manager = GameObject.Find ("Kinect").GetComponent<KinectManager> () ?? KinectManager.Instance;
+		manager = GameObject.FindGameObjectWithTag("Kinect").GetComponent<KinectManager> ();
 	}
 	
 	void OnGUI () {

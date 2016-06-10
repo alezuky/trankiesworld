@@ -40,7 +40,7 @@ public class TrainingControl : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
-		manager = GameObject.Find("Kinect").GetComponent<KinectManager>();
+		manager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 
 		if (manager.player1tracked != true)
 		{

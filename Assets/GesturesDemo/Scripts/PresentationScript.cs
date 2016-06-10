@@ -59,7 +59,7 @@ public class PresentationScript : MonoBehaviour
 	void Update() 
 	{
 		// dont run Update() if there is no user
-		KinectManager kinectManager = KinectManager.Instance;
+		KinectManager kinectManager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 		if(autoChangeAlfterDelay && (!kinectManager || !kinectManager.IsInitialized() || !kinectManager.IsUserDetected()))
 			return;
 		

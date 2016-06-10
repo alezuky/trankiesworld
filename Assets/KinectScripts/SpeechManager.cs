@@ -81,7 +81,7 @@ public class SpeechManager : MonoBehaviour
 		try 
 		{
 			// get sensor data
-			KinectManager kinectManager = KinectManager.Instance;
+			KinectManager kinectManager = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<KinectManager> ();
 			if(kinectManager && kinectManager.IsInitialized())
 			{
 				sensorData = kinectManager.GetSensorData();

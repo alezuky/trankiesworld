@@ -95,11 +95,11 @@ public class Reset : MonoBehaviour {
 				//right hand -> CONTINUE
 				if (kinect.SetFire()) {
 					//SendMessageUpwards("RestartGame");
-					GameObject.Find ("Kinect").GetComponent<Pause> ().ContinueGame (kinect.player);
+					GameObject.FindGameObjectWithTag ("Kinect").GetComponent<Pause> ().ContinueGame (kinect.player);
 				}
 				// left hand -> RESET
 				if (kinect.Propulsion()) {
-					GameObject.Find ("Kinect").GetComponent<Pause> ().ContinueGame (kinect.player);
+					GameObject.FindGameObjectWithTag ("Kinect").GetComponent<Pause> ().ContinueGame (kinect.player);
 					Application.LoadLevel ("Spaceship_Level");
 				}
 			}

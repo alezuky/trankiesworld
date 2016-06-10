@@ -26,7 +26,7 @@ public class Timer : MonoBehaviour {
 	void Start ()
 	{
 		SetEnable ();
-		pause = GameObject.Find ("Kinect").GetComponent<Pause> ();
+		pause = GameObject.FindGameObjectWithTag ("Kinect").GetComponent<Pause> ();
 	}
 
 	
