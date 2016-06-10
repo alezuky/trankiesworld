@@ -24,7 +24,7 @@ public class Reset : MonoBehaviour {
 	
 	// Use this for initialization
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.name == "Projectile(Clone)" ) {
+		if (other.gameObject.tag == "Projectile") {
 			kinect = (GestureListener)GameObject.Find (other.gameObject.GetComponent<Projectile> ().owner).GetComponent<GestureListener> ();
 			handsClosed = false;
 			hit = true;

@@ -14,17 +14,15 @@ public class Quit : MonoBehaviour {
 	
 	public GUISkin skin;
 	
-	public bool SetRestart = false;
-	
 	private bool hit = false;
 	
 	void UpdateBothHands(Color color) {
-		skin.customStyles[1].normal.textColor = color;
+		//skin.customStyles[1].normal.textColor = color;
 	}
 	
 	// Use this for initialization
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.name == "Projectile(Clone)" ) {
+		if (other.gameObject.tag == "Projectile") {
 			kinect = (GestureListener)GameObject.Find (other.gameObject.GetComponent<Projectile> ().owner).GetComponent<GestureListener> ();
 			handsClosed = false;
 			hit = true;
@@ -57,11 +55,11 @@ public class Quit : MonoBehaviour {
 	}
 	
 	void UpdateRightHandColor (Color color) {
-		skin.customStyles[5].normal.textColor = color;
+		//skin.customStyles[5].normal.textColor = color;
 	}
 	
 	void UpdateLeftHandColor (Color color) {
-		skin.customStyles[6].normal.textColor = color;
+		//skin.customStyles[6].normal.textColor = color;
 	}
 	
 	void StartEffectsNextStep () {
@@ -70,36 +68,28 @@ public class Quit : MonoBehaviour {
 		iTween.ValueTo(gameObject, iTween.Hash("name", "ChangeColorReplay", "from", Color.magenta, "to", Color.red, "time", 0.4, "looptype", iTween.LoopType.pingPong, "OnUpdate", "UpdateLeftHandColor"  ));
 	}
 	
-	void RestartGame () {
-		this.enabled = false;
-		handsClosed = false;
-		iTween.Stop();
-		SetRestart = false;
-	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		if (SetRestart) {
-			SetRestart = false;
-			SendMessageUpwards("RestartGame");
-		}
-		//validation to avoid crash
-		if(kinect != null && kinect.tracked == true) {
+		if (hit) {
+			//validation to avoid crash
+			if (kinect != null && kinect.tracked == true) {
 			
-			if (!handsClosed) {
-				if (!kinect.SetFire() && !kinect.Propulsion()) {
-					handsClosed = true;
-					StartEffectsNextStep();
-				}
-			} else {
-				//right hand -> CONTINUE
-				if (kinect.SetFire()) {
-					//SendMessageUpwards("RestartGame");
-					GameObject.Find ("Kinect").GetComponent<Pause> ().ContinueGame (kinect.player);
-				}
-				// left hand -> Quit
-				if (kinect.Propulsion()) {
-					Application.Quit();
+				if (!handsClosed) {
+					if (!kinect.SetFire () && !kinect.Propulsion ()) {
+						handsClosed = true;
+						StartEffectsNextStep ();
+					}
+				} else {
+					//right hand -> CONTINUE
+					if (kinect.SetFire ()) {
+						//SendMessageUpwards("RestartGame");
+						GameObject.Find ("Kinect").GetComponent<Pause> ().ContinueGame (kinect.player);
+					}
+					// left hand -> Quit
+					if (kinect.Propulsion ()) {
+						Application.Quit ();
+					}
 				}
 			}
 		}
