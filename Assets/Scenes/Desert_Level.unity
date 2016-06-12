@@ -3771,7 +3771,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 123
+  m_RootOrder: 127
 --- !u!1 &417833809
 GameObject:
   m_ObjectHideFlags: 0
@@ -7242,6 +7242,18 @@ Prefab:
     - target: {fileID: 416468, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486588, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
+      propertyPath: displaySkeletonLines
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486588, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
+      propertyPath: displayColorMap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486588, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
+      propertyPath: displayUserMap
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
@@ -11828,6 +11840,22 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 123558, guid: 7a95db81cda41034196c2bb871247da2, type: 2}
   m_PrefabInternal: {fileID: 353700791}
+--- !u!114 &1857988733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1857988732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e047afe89474fd43823f041ee939e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resWidth: 7680
+  resHeight: 4320
+  path: E:/OneDrive/HTW/ImagineCup/Final/Press_Kit/Hight_Res_Prints
+  printScreenTime: 10
+  isRecording: 0
 --- !u!45 &1857988742
 Skybox:
   m_ObjectHideFlags: 0

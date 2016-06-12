@@ -177,7 +177,7 @@ Transform:
   - {fileID: 303506238}
   - {fileID: 1482169633}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!1001 &49644070
 Prefab:
   m_ObjectHideFlags: 0
@@ -625,7 +625,7 @@ Transform:
   - {fileID: 2114372940}
   - {fileID: 1731279097}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
 --- !u!1001 &198023593
 Prefab:
   m_ObjectHideFlags: 0
@@ -2100,7 +2100,7 @@ Transform:
   - {fileID: 825384242}
   - {fileID: 853876789}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!4 &716461063 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 1a4b7e855ec2aee48abb604abd385373, type: 3}
@@ -5445,6 +5445,22 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 123558, guid: 7a95db81cda41034196c2bb871247da2, type: 2}
   m_PrefabInternal: {fileID: 969581948}
+--- !u!114 &1733740010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1733740009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e047afe89474fd43823f041ee939e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resWidth: 7680
+  resHeight: 4320
+  path: E:/OneDrive/HTW/ImagineCup/Final/Press_Kit/Hight_Res_Prints
+  printScreenTime: 10
+  isRecording: 0
 --- !u!45 &1733740019
 Skybox:
   m_ObjectHideFlags: 0

@@ -1069,6 +1069,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 11486588, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
+      propertyPath: computeUserMap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486588, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
+      propertyPath: computeColorMap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486588, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
+      propertyPath: computeInfraredMap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486588, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
+      propertyPath: displayUserMap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486588, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
+      propertyPath: displayColorMap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486588, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
+      propertyPath: displaySkeletonLines
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
   m_IsPrefabParent: 0
@@ -5463,6 +5487,22 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 123558, guid: 7a95db81cda41034196c2bb871247da2, type: 2}
   m_PrefabInternal: {fileID: 341754190}
+--- !u!114 &1956767412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1956767411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e047afe89474fd43823f041ee939e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resWidth: 7680
+  resHeight: 4320
+  path: E:/OneDrive/HTW/ImagineCup/Final/Press_Kit/Hight_Res_Prints
+  printScreenTime: 10
+  isRecording: 0
 --- !u!45 &1956767421
 Skybox:
   m_ObjectHideFlags: 0
