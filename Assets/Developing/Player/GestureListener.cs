@@ -117,7 +117,6 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 
 		if (manager.GetComponent<Pause> ().isPaused == false && requestforpause == true) {
 			requestforpause = false;
-			manager.GetComponent<Pause> ().isPaused = true;
 			manager.GetComponent<Pause> ().PauseGame (player);
 		}
 
