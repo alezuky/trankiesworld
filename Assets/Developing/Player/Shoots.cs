@@ -6,11 +6,11 @@ public class Shoots : MonoBehaviour
 		private bool safetyTime = false;
 
 		public GameObject projectile = null;
-		public float projectileforce  = 15000f;
+		public float projectileforce  = 25000f;
 		public GameObject ray = null;
 		public GestureListener kinect;
 		private Vector3 totalforce;
-		public float firecooldown;
+		public float firecooldown = 0.5f;
 		private float firetimer;
 		private Vector3 scale;
 		public Vector3 firelocal;
@@ -51,7 +51,6 @@ public class Shoots : MonoBehaviour
 		}
 
 		anim = gameObject.GetComponent<Animator> ();
-		firecooldown = 1f;
 		firetimer = 0;
 		firstShoot = true;
 

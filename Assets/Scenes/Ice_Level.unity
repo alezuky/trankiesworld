@@ -177,7 +177,7 @@ Transform:
   - {fileID: 303506238}
   - {fileID: 1482169633}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!1001 &49644070
 Prefab:
   m_ObjectHideFlags: 0
@@ -625,7 +625,7 @@ Transform:
   - {fileID: 2114372940}
   - {fileID: 1731279097}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 20
 --- !u!1001 &198023593
 Prefab:
   m_ObjectHideFlags: 0
@@ -1323,6 +1323,14 @@ Prefab:
       propertyPath: respawnPositions.Array.data[4]
       value: 
       objectReference: {fileID: 214570790}
+    - target: {fileID: 11470942, guid: ad68cb58796664a4a904b634727293b8, type: 2}
+      propertyPath: projectileforce
+      value: 25000
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470942, guid: ad68cb58796664a4a904b634727293b8, type: 2}
+      propertyPath: firecooldown
+      value: .5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad68cb58796664a4a904b634727293b8, type: 2}
   m_IsPrefabParent: 0
@@ -5924,6 +5932,14 @@ Prefab:
       propertyPath: respawnPositions.Array.data[4]
       value: 
       objectReference: {fileID: 214570790}
+    - target: {fileID: 11468000, guid: 0c576d5e4624e41dfa61dbba09a06d8a, type: 2}
+      propertyPath: projectileforce
+      value: 25000
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468000, guid: 0c576d5e4624e41dfa61dbba09a06d8a, type: 2}
+      propertyPath: firecooldown
+      value: .5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c576d5e4624e41dfa61dbba09a06d8a, type: 2}
   m_IsPrefabParent: 0
