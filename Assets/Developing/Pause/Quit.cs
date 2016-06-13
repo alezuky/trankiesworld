@@ -17,7 +17,7 @@ public class Quit : MonoBehaviour {
 	private bool hit = false;
 	
 	void UpdateBothHands(Color color) {
-		//skin.customStyles[1].normal.textColor = color;
+		skin.customStyles[1].normal.textColor = color;
 	}
 	
 	// Use this for initialization
@@ -55,11 +55,11 @@ public class Quit : MonoBehaviour {
 	}
 	
 	void UpdateRightHandColor (Color color) {
-		//skin.customStyles[5].normal.textColor = color;
+		skin.customStyles[5].normal.textColor = color;
 	}
 	
 	void UpdateLeftHandColor (Color color) {
-		//skin.customStyles[6].normal.textColor = color;
+		skin.customStyles[6].normal.textColor = color;
 	}
 	
 	void StartEffectsNextStep () {
@@ -88,6 +88,7 @@ public class Quit : MonoBehaviour {
 					}
 					// left hand -> Quit
 					if (kinect.Propulsion ()) {
+						Debug.Log ("quitting");
 						Application.Quit ();
 					}
 				}

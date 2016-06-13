@@ -67,10 +67,8 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 			if (String.Compare (gameObject.name, "Player_1") == 0 || String.Compare (gameObject.name, "Player_2") == 0) {
 				Debug.Log ("Adding " + gameObject.name);
 
+						//This is the position for pausing
 						manager.DetectGesture (userId, KinectGestures.Gestures.Tpose);
-				//		manager.DetectGesture (userId, KinectGestures.Gestures.SwipeRight);
-				//		manager.DetectGesture(userId, KinectGestures.Gestures.SwipeUp);
-				//		manager.DetectGesture(userId, KinectGestures.Gestures.SwipeDown);
 
 				tracked = true;
 				user = userId;
@@ -78,14 +76,6 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 				if (GestureInfo != null) {
 					GestureInfo.GetComponent<GUIText>().text = "Playing!";
 				}
-
-				/*if (colorassigned[player] == false) {
-				Renderer[] rendererArray = transform.GetComponentsInChildren<Renderer>();
-				foreach (Renderer obj in rendererArray) {
-					obj.material.color = color;
-				}
-				colorassigned [player] = true;
-			}*/
 
 				return gameObject.name;
 
@@ -304,15 +294,7 @@ public class GestureListener : MonoBehaviour, KinectGestures.GestureListenerInte
 		}
 		else
 			return false;
-		/*else if(gesture == KinectGestures.Gestures.SwipeLeft)
-			swipeLeft = true;
-		else if(gesture == KinectGestures.Gestures.SwipeRight)
-			swipeRight = true;
-		else if(gesture == KinectGestures.Gestures.SwipeUp)
-			swipeUp = true;
-		else if(gesture == KinectGestures.Gestures.SwipeDown)
-			swipeDown = true;*/
-		
+
 	}
 
 	public bool GestureCancelled (Int64 userId, int userIndex, KinectGestures.Gestures gesture, 
