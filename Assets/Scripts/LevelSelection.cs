@@ -18,7 +18,10 @@ public class LevelSelection : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		scene.SelectLevel(other.gameObject, transform.parent.name);
-		other.gameObject.SetActive(false);
+		if (other.tag == "Player")
+		{
+			scene.SelectLevel (other.gameObject, transform.parent.name);
+			other.gameObject.SetActive (false);
+		}
 	}
 }
