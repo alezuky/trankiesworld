@@ -126,6 +126,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11448868, guid: df4031379e5be6d4cbd297110532041e, type: 2}
+      propertyPath: displaySkeletonLines
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448868, guid: df4031379e5be6d4cbd297110532041e, type: 2}
+      propertyPath: displayColorMap
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448868, guid: df4031379e5be6d4cbd297110532041e, type: 2}
+      propertyPath: displayUserMap
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df4031379e5be6d4cbd297110532041e, type: 2}
   m_IsPrefabParent: 0
