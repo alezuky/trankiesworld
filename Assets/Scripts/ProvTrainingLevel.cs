@@ -27,12 +27,12 @@ public class ProvTrainingLevel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 				
-		if (levelLoaded == true ) {
-			manager.splash = false;
-			Application.LoadLevel ("Spaceship_Level");
+		//if (levelLoaded == true) {
+		//	manager.splash = false;
+		//	Application.LoadLevel ("Spaceship_Level");
 			
 			
-		}
+		//}
 		
 	}
 }
