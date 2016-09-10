@@ -26,7 +26,7 @@ public class CharController : MonoBehaviour {
 
 	public Animator anim;
 
-	int speedHash = Animator.StringToHash("speed");
+	float speedHash = Animator.StringToHash("speed");
 	int jumpHash = Animator.StringToHash("jump");
 
 
@@ -111,6 +111,11 @@ public class CharController : MonoBehaviour {
 
 			ListenDebugKeyboard();
 			ListenKinectMotions();
+
+			//updates the speedhash for the animator
+			anim.SetFloat("speed", body.velocity.magnitude);
+			//speedHash = body.velocity.magnitude;
+
 		}
 	}
 	
@@ -181,7 +186,7 @@ public class CharController : MonoBehaviour {
 				gameObject.RotateTo(new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z), 0.5f, 0f);
 			
 			body.AddForce(new Vector3(moveSpeed * Time.deltaTime, 0, 0));
-			anim.SetFloat(speedHash, totalspeed);
+			//anim.SetFloat(speedHash, totalspeed);
 			Debug.Log("Forward");
 		}
 		
@@ -190,7 +195,7 @@ public class CharController : MonoBehaviour {
 				gameObject.RotateTo(new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z), 0.5f, 0f);
 
 			body.AddForce(new Vector3(-moveSpeed * Time.deltaTime, 0, 0));
-			anim.SetFloat(speedHash, totalspeed);
+			//anim.SetFloat(speedHash, totalspeed);
 			Debug.Log("Forward");
 		}
 		
@@ -240,7 +245,7 @@ public class CharController : MonoBehaviour {
 				//	gameObject.RotateTo (new Vector3 (transform.eulerAngles.x, 0, transform.eulerAngles.z), 1f, 0f);
 				//}
 				body.AddForce(new Vector3(totalspeed, 0, 0));	
-				anim.SetFloat(speedHash, totalspeed);
+				//anim.SetFloat(speedHash, totalspeed);
 				//AudioSource.PlayClipAtPoint(forward, transform.position);
 			}
 
@@ -249,7 +254,7 @@ public class CharController : MonoBehaviour {
 				//	gameObject.RotateTo (new Vector3 (transform.eulerAngles.x, 180, transform.eulerAngles.z), 1f, 0f);
 				//}
 				body.AddForce(new Vector3(-totalspeed,0,0));	
-				anim.SetFloat(speedHash, totalspeed);
+				//anim.SetFloat(speedHash, totalspeed);
 				//AudioSource.PlayClipAtPoint(forward, transform.position);
 			}
 			
