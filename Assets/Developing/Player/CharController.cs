@@ -36,7 +36,11 @@ public class CharController : MonoBehaviour {
 
 	private Rigidbody body;
 
-	void Awake() {
+    //uso para controle via teclado e mouse ou joystick
+    private string thisplayer;
+    public int numplayer;
+
+    void Awake() {
 
 		// Matches with the script for Kinect
 		kinect = this.GetComponent<GestureListener>();
@@ -51,7 +55,10 @@ public class CharController : MonoBehaviour {
 
 		propulsionForce= 950f;
 		moveSpeed= 20000f;
-	}
+
+        
+
+    }
 	
 	void Start() {
 
@@ -80,7 +87,10 @@ public class CharController : MonoBehaviour {
 		
 		//saves the origin of the character
 		startposition = transform.position;
-	}
+
+        thisplayer = gameObject.name;
+        numplayer = 1;
+    }
 
 	void FixedUpdate() {
 
@@ -137,17 +147,36 @@ public class CharController : MonoBehaviour {
 		body.WakeUp();
 	}
 
-	void ListenDebugKeyboard() {
-		totalspeed = (moveSpeed / 10) * Time.deltaTime;
+	/// <summary>
+    /// Uso para controle alternativo ao kinect através do mouse e teclado, joystick
+    /// </summary>
+    void ListenDebugKeyboard() {
+        
+        //player to control
+        if (Input.GetKeyDown("1"))
+        {
+            numplayer = 1;
+            Debug.Log("Player_"+ numplayer);
+        } 
+        else if (Input.GetKeyDown("2"))
+        {
+            numplayer = 2;
+            Debug.Log("Player_" + numplayer);
+        }
+            
+
+        bool aux = (("Player_" + numplayer) == thisplayer);
+
+        totalspeed = (moveSpeed / 10) * Time.deltaTime;
 
 		if (totalspeed > moveSpeed) totalspeed = moveSpeed;
 
-		if (Input.GetKeyDown("right") || Input.GetKeyDown("left")) {
+		if ((Input.GetKeyDown("right") || Input.GetKeyDown("left")) && aux) {
 			body.angularVelocity = Vector3.zero;	
 			Debug.Log("Idle");
 		}
 		
-		if (Input.GetKey("right")) {
+		if (Input.GetAxis("Horizontal_P"+numplayer) > 0.2f && aux) {
 			if (transform.eulerAngles.y != 0)
 				gameObject.RotateTo(new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z), 0.5f, 0f);
 			
@@ -156,7 +185,7 @@ public class CharController : MonoBehaviour {
 			Debug.Log("Forward");
 		}
 		
-		if (Input.GetKey("left")) {
+		if (Input.GetAxis("Horizontal_P" + numplayer) < -0.2f && aux) {
 			if (transform.eulerAngles.y != 180)
 				gameObject.RotateTo(new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z), 0.5f, 0f);
 
@@ -165,12 +194,24 @@ public class CharController : MonoBehaviour {
 			Debug.Log("Forward");
 		}
 		
-		if (Input.GetKeyDown("space")) {
+		if (Input.GetButton("Jump_P" + numplayer) && aux) {
 			body.AddForce(new Vector3(0, propulsionForce, 0));
 			AudioSource.PlayClipAtPoint(jump, transform.position);
 			anim.SetTrigger(jumpHash);
 			Debug.Log("Jump");
 		}
+
+        if(Input.GetButton("Pause_P" + numplayer) && aux)
+        {
+            if(GameObject.FindGameObjectWithTag("Kinect").GetComponent<Pause>().isPaused && GameObject.FindGameObjectWithTag("Kinect").GetComponent<Pause>().player.name == thisplayer)
+                GameObject.FindGameObjectWithTag("Kinect").GetComponent<Pause>().ContinueGame(numplayer);
+
+            else if(!GameObject.FindGameObjectWithTag("Kinect").GetComponent<Pause>().isPaused)
+                GameObject.FindGameObjectWithTag("Kinect").GetComponent<Pause>().PauseGame(numplayer);
+
+            Debug.Log("Pause_P" + numplayer);
+
+        }
 	}
 
 	void ListenKinectMotions() {
