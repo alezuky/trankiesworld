@@ -1031,6 +1031,10 @@ Prefab:
       propertyPath: displaySkeletonLines
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 140608, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
   m_IsPrefabParent: 0
