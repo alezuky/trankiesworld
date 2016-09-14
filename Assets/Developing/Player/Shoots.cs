@@ -85,7 +85,7 @@ public class Shoots : MonoBehaviour
             Point();
         }
 
-        if (kinect.SetFire() || ((Input.GetButtonDown("Fire1_P1") || Input.GetButtonDown("Fire1_P2")) && gameObject.name == "Player_" + numplayer))
+        if (kinect.SetFire() || ((Input.GetButton("Fire1_P1") || Input.GetButton("Fire1_P2")) && gameObject.name == "Player_" + numplayer))
         {
             gameObject.SendMessageUpwards("Fire");
             anim.SetTrigger(shootHash);

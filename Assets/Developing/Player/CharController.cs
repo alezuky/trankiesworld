@@ -176,6 +176,7 @@ public class CharController : MonoBehaviour
 	
 	void ListenDebugKeyboard()
 	{
+        //take mouse position on plane (0,0,1) (playes's plane)
 		mousePos = Camera.main.ScreenPointToRay(Input.mousePosition).direction * (-Camera.main.transform.position.z) + Camera.main.transform.position;
 		mousePos.z = 0;
 		mouseDirection = (mousePos - transform.position).normalized;
@@ -191,7 +192,7 @@ public class CharController : MonoBehaviour
 		else if(Input.GetKeyDown("1") || Input.GetKeyDown("2"))
 			numplayer = 0;
 		
-		
+		//verify if this player and numplayer match
 		bool aux = (("Player_" + numplayer) == thisplayer);
 		
 		totalspeed = (moveSpeed / 10) * Time.deltaTime;
@@ -200,7 +201,7 @@ public class CharController : MonoBehaviour
 		
 		if (aux && numplayer != 0)
 		{
-			
+            
 			if (mouseDirection.x <= 0 && transform.eulerAngles.y != 180)
 			{
 				gameObject.RotateTo(new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z), 0.5f, 0f);
@@ -236,15 +237,17 @@ public class CharController : MonoBehaviour
 				//Debug.Log("Forward");
 			}
 			
-			if (Input.GetButtonDown("Jump_P" + numplayer))
+			if (Input.GetButton("Jump_P" + numplayer) && propulsionTimer > propulsionCoolDown)
 			{
-				body.AddForce(new Vector3(0, propulsionForce, 0));
+                propulsionTimer = 0;
+                body.AddForce(new Vector3(0, propulsionForce, 0));
 				AudioSource.PlayClipAtPoint(jump, transform.position);
 				anim.SetTrigger(jumpHash);
-				//Debug.Log("Jump");
-			}
-			
-			if (Input.GetButtonDown("Pause_P" + numplayer))
+                //Debug.Log("Jump");
+            }
+
+            
+            if (Input.GetButtonDown("Pause_P" + numplayer))
 			{
 				if (GameObject.FindGameObjectWithTag("Kinect").GetComponent<Pause>().isPaused && GameObject.FindGameObjectWithTag("Kinect").GetComponent<Pause>().player.name == thisplayer)
 					GameObject.FindGameObjectWithTag("Kinect").GetComponent<Pause>().ContinueGame(numplayer);
