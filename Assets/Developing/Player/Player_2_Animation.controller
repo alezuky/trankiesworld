@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: PlayerAnimation
+  m_Name: Player_2_Animation
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: speed
@@ -318,7 +318,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9644b96c4dca2f747a8717207bd3f176, type: 3}
+  m_Motion: {fileID: 7400000, guid: bc3493d0e9552c8438069a8e76595150, type: 3}
   m_Tag: 
   m_SpeedParameter: speed
   m_MirrorParameter: 
@@ -344,30 +344,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 22d4462776a37c742bb231ee33de7a72, type: 3}
-  m_Tag: 
-  m_SpeedParameter: speed
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
---- !u!1102 &110226848
-AnimatorState:
-  serializedVersion: 5
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Celebrate_1
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b0f5521892c63e3498237f3f1a5391c3, type: 3}
+  m_Motion: {fileID: 7400000, guid: 253ce3def4d86a943afbf706ca0c7d5c, type: 3}
   m_Tag: 
   m_SpeedParameter: speed
   m_MirrorParameter: 
@@ -441,7 +418,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 4bf32f69ea716424a84c9dfa2803220c, type: 3}
+  m_Motion: {fileID: 7400000, guid: 7ca4f876e4267c244a2ec97b4a599e8e, type: 3}
   m_Tag: 
   m_SpeedParameter: speed
   m_MirrorParameter: 
@@ -469,9 +446,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 110252466}
     m_Position: {x: 971, y: 301, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 110226848}
-    m_Position: {x: 528, y: 312, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

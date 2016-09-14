@@ -1,0 +1,367 @@
+fileFormatVersion: 2
+guid: 4bf32f69ea716424a84c9dfa2803220c
+timeCreated: 1470338119
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Character5:back
+    100002: Character5:Belly_CTRL
+    100004: Character5:Chest_CTRL1
+    100006: Character5:Head
+    100008: Character5:Head_CTRL
+    100010: Character5:Hips_CTRL
+    100012: Character5:L_Ball_IK
+    100014: Character5:L_Elbow
+    100016: Character5:L_Elbow_CTRL
+    100018: Character5:L_Feet_CTRL
+    100020: Character5:L_Foot
+    100022: Character5:L_IK_CTRL
+    100024: Character5:L_Knee
+    100026: Character5:L_Knee 1
+    100028: Character5:L_Knee_IK
+    100030: Character5:L_Leg
+    100032: Character5:L_RV_Feet
+    100034: Character5:L_RV_Knee
+    100036: Character5:L_RV_Root
+    100038: Character5:L_RV_Toe
+    100040: Character5:L_Shoulder
+    100042: Character5:L_Shoulder_CTRL
+    100044: Character5:L_Toe
+    100046: Character5:L_Toe_IK
+    100048: Character5:L_Wrist
+    100050: Character5:left
+    100052: Character5:Neck
+    100054: Character5:polySurface1
+    100056: Character5:R_Ball_IK
+    100058: Character5:R_Elbow
+    100060: Character5:R_Elbow_CTRL
+    100062: Character5:R_Feet_CTRL
+    100064: Character5:R_Foot
+    100066: Character5:R_Hand
+    100068: Character5:R_Hand_CTRL
+    100070: Character5:R_IK_CTRL
+    100072: Character5:R_Index_01
+    100074: Character5:R_Index_02
+    100076: Character5:R_Index_02 1
+    100078: Character5:R_Index_03
+    100080: Character5:R_Index_03 1
+    100082: Character5:R_Knee
+    100084: Character5:R_Knee 1
+    100086: Character5:R_Knee_IK
+    100088: Character5:R_Leg
+    100090: Character5:R_Pinky_01
+    100092: Character5:R_RV_Feet
+    100094: Character5:R_RV_Knee
+    100096: Character5:R_RV_Root
+    100098: Character5:R_RV_Toe
+    100100: Character5:R_Shoulder
+    100102: Character5:R_Shoulder_CTRL
+    100104: Character5:R_Thumb_01
+    100106: Character5:R_Thumb_02
+    100108: Character5:R_Thumb_03
+    100110: Character5:R_Toe
+    100112: Character5:R_Toe_IK
+    100114: Character5:R_Wrist
+    100116: Character5:Root
+    100118: Character5:Root_CTRL
+    100120: Character5:Spine_01
+    100122: Character5:Spine_02
+    100124: Character5:Spine_03
+    100126: //RootNode
+    100128: left
+    400000: Character5:back
+    400002: Character5:Belly_CTRL
+    400004: Character5:Chest_CTRL1
+    400006: Character5:Head
+    400008: Character5:Head_CTRL
+    400010: Character5:Hips_CTRL
+    400012: Character5:L_Ball_IK
+    400014: Character5:L_Elbow
+    400016: Character5:L_Elbow_CTRL
+    400018: Character5:L_Feet_CTRL
+    400020: Character5:L_Foot
+    400022: Character5:L_IK_CTRL
+    400024: Character5:L_Knee
+    400026: Character5:L_Knee 1
+    400028: Character5:L_Knee_IK
+    400030: Character5:L_Leg
+    400032: Character5:L_RV_Feet
+    400034: Character5:L_RV_Knee
+    400036: Character5:L_RV_Root
+    400038: Character5:L_RV_Toe
+    400040: Character5:L_Shoulder
+    400042: Character5:L_Shoulder_CTRL
+    400044: Character5:L_Toe
+    400046: Character5:L_Toe_IK
+    400048: Character5:L_Wrist
+    400050: Character5:left
+    400052: Character5:Neck
+    400054: Character5:polySurface1
+    400056: Character5:R_Ball_IK
+    400058: Character5:R_Elbow
+    400060: Character5:R_Elbow_CTRL
+    400062: Character5:R_Feet_CTRL
+    400064: Character5:R_Foot
+    400066: Character5:R_Hand
+    400068: Character5:R_Hand_CTRL
+    400070: Character5:R_IK_CTRL
+    400072: Character5:R_Index_01
+    400074: Character5:R_Index_02
+    400076: Character5:R_Index_02 1
+    400078: Character5:R_Index_03
+    400080: Character5:R_Index_03 1
+    400082: Character5:R_Knee
+    400084: Character5:R_Knee 1
+    400086: Character5:R_Knee_IK
+    400088: Character5:R_Leg
+    400090: Character5:R_Pinky_01
+    400092: Character5:R_RV_Feet
+    400094: Character5:R_RV_Knee
+    400096: Character5:R_RV_Root
+    400098: Character5:R_RV_Toe
+    400100: Character5:R_Shoulder
+    400102: Character5:R_Shoulder_CTRL
+    400104: Character5:R_Thumb_01
+    400106: Character5:R_Thumb_02
+    400108: Character5:R_Thumb_03
+    400110: Character5:R_Toe
+    400112: Character5:R_Toe_IK
+    400114: Character5:R_Wrist
+    400116: Character5:Root
+    400118: Character5:Root_CTRL
+    400120: Character5:Spine_01
+    400122: Character5:Spine_02
+    400124: Character5:Spine_03
+    400126: //RootNode
+    400128: left
+    4300000: Character5:polySurface1
+    7400000: Jump
+    9500000: //RootNode
+    13700000: Character5:polySurface1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Jump
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 22
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Character5:back
+        weight: 1
+      - path: Character5:L_Ball_IK
+        weight: 1
+      - path: Character5:L_Knee_IK
+        weight: 1
+      - path: Character5:L_RV_Root
+        weight: 1
+      - path: Character5:L_RV_Root/Character5:L_RV_Toe
+        weight: 1
+      - path: Character5:L_RV_Root/Character5:L_RV_Toe/Character5:L_RV_Feet
+        weight: 1
+      - path: Character5:L_RV_Root/Character5:L_RV_Toe/Character5:L_RV_Feet/Character5:L_RV_Knee
+        weight: 1
+      - path: Character5:L_Toe_IK
+        weight: 1
+      - path: Character5:left
+        weight: 1
+      - path: Character5:polySurface1
+        weight: 1
+      - path: Character5:R_Ball_IK
+        weight: 1
+      - path: Character5:R_Knee_IK
+        weight: 1
+      - path: Character5:R_RV_Root
+        weight: 1
+      - path: Character5:R_RV_Root/Character5:R_RV_Toe
+        weight: 1
+      - path: Character5:R_RV_Root/Character5:R_RV_Toe/Character5:R_RV_Feet
+        weight: 1
+      - path: Character5:R_RV_Root/Character5:R_RV_Toe/Character5:R_RV_Feet/Character5:R_RV_Knee
+        weight: 1
+      - path: Character5:R_Toe_IK
+        weight: 1
+      - path: Character5:Root
+        weight: 1
+      - path: Character5:Root/Character5:L_Leg
+        weight: 1
+      - path: Character5:Root/Character5:L_Leg/Character5:L_Knee
+        weight: 1
+      - path: Character5:Root/Character5:L_Leg/Character5:L_Knee/Character5:L_Knee
+          1
+        weight: 1
+      - path: Character5:Root/Character5:L_Leg/Character5:L_Knee/Character5:L_Knee
+          1/Character5:L_Foot
+        weight: 1
+      - path: Character5:Root/Character5:L_Leg/Character5:L_Knee/Character5:L_Knee
+          1/Character5:L_Foot/Character5:L_Toe
+        weight: 1
+      - path: Character5:Root/Character5:R_Leg
+        weight: 1
+      - path: Character5:Root/Character5:R_Leg/Character5:R_Knee
+        weight: 1
+      - path: Character5:Root/Character5:R_Leg/Character5:R_Knee/Character5:R_Knee
+          1
+        weight: 1
+      - path: Character5:Root/Character5:R_Leg/Character5:R_Knee/Character5:R_Knee
+          1/Character5:R_Foot
+        weight: 1
+      - path: Character5:Root/Character5:R_Leg/Character5:R_Knee/Character5:R_Knee
+          1/Character5:R_Foot/Character5:R_Toe
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:L_Shoulder
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:L_Shoulder/Character5:L_Elbow
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:L_Shoulder/Character5:L_Elbow/Character5:L_Wrist
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:Neck
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:Neck/Character5:Head
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:R_Shoulder
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:R_Shoulder/Character5:R_Elbow
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:R_Shoulder/Character5:R_Elbow/Character5:R_Wrist
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:R_Shoulder/Character5:R_Elbow/Character5:R_Wrist/Character5:R_Hand
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:R_Shoulder/Character5:R_Elbow/Character5:R_Wrist/Character5:R_Hand/Character5:R_Index_01
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:R_Shoulder/Character5:R_Elbow/Character5:R_Wrist/Character5:R_Hand/Character5:R_Index_01/Character5:R_Index_02
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:R_Shoulder/Character5:R_Elbow/Character5:R_Wrist/Character5:R_Hand/Character5:R_Index_01/Character5:R_Index_02/Character5:R_Index_03
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:R_Shoulder/Character5:R_Elbow/Character5:R_Wrist/Character5:R_Hand/Character5:R_Pinky_01
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:R_Shoulder/Character5:R_Elbow/Character5:R_Wrist/Character5:R_Hand/Character5:R_Pinky_01/Character5:R_Index_02
+          1
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:R_Shoulder/Character5:R_Elbow/Character5:R_Wrist/Character5:R_Hand/Character5:R_Pinky_01/Character5:R_Index_02
+          1/Character5:R_Index_03 1
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:R_Shoulder/Character5:R_Elbow/Character5:R_Wrist/Character5:R_Hand/Character5:R_Thumb_01
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:R_Shoulder/Character5:R_Elbow/Character5:R_Wrist/Character5:R_Hand/Character5:R_Thumb_01/Character5:R_Thumb_02
+        weight: 1
+      - path: Character5:Root/Character5:Spine_01/Character5:Spine_02/Character5:Spine_03/Character5:R_Shoulder/Character5:R_Elbow/Character5:R_Wrist/Character5:R_Hand/Character5:R_Thumb_01/Character5:R_Thumb_02/Character5:R_Thumb_03
+        weight: 1
+      - path: Character5:Root_CTRL
+        weight: 1
+      - path: Character5:Root_CTRL/Character5:Hips_CTRL
+        weight: 1
+      - path: Character5:Root_CTRL/Character5:Hips_CTRL/Character5:Belly_CTRL
+        weight: 1
+      - path: Character5:Root_CTRL/Character5:Hips_CTRL/Character5:Belly_CTRL/Character5:Chest_CTRL1
+        weight: 1
+      - path: Character5:Root_CTRL/Character5:Hips_CTRL/Character5:Belly_CTRL/Character5:Chest_CTRL1/Character5:L_Shoulder_CTRL
+        weight: 1
+      - path: Character5:Root_CTRL/Character5:Hips_CTRL/Character5:Belly_CTRL/Character5:Chest_CTRL1/Character5:L_Shoulder_CTRL/Character5:L_Elbow_CTRL
+        weight: 1
+      - path: Character5:Root_CTRL/Character5:Hips_CTRL/Character5:Belly_CTRL/Character5:Chest_CTRL1/Character5:R_Shoulder_CTRL
+        weight: 1
+      - path: Character5:Root_CTRL/Character5:Hips_CTRL/Character5:Belly_CTRL/Character5:Chest_CTRL1/Character5:R_Shoulder_CTRL/Character5:R_Elbow_CTRL
+        weight: 1
+      - path: Character5:Root_CTRL/Character5:Hips_CTRL/Character5:Belly_CTRL/Character5:Chest_CTRL1/Character5:R_Shoulder_CTRL/Character5:R_Elbow_CTRL/Character5:R_Hand_CTRL
+        weight: 1
+      - path: Character5:Root_CTRL/Character5:Hips_CTRL/Character5:Head_CTRL
+        weight: 1
+      - path: Character5:Root_CTRL/Character5:L_Feet_CTRL
+        weight: 1
+      - path: Character5:Root_CTRL/Character5:L_Feet_CTRL/Character5:L_IK_CTRL
+        weight: 1
+      - path: Character5:Root_CTRL/Character5:R_Feet_CTRL
+        weight: 1
+      - path: Character5:Root_CTRL/Character5:R_Feet_CTRL/Character5:R_IK_CTRL
+        weight: 1
+      - path: left
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

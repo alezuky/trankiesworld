@@ -21,13 +21,14 @@ public class Credits : MonoBehaviour {
 			StartCoroutine("LoadGame");
 		manager = GameObject.FindGameObjectWithTag("Kinect").GetComponent<KinectManager> ();
 	}
-	
-	void OnGUI () {
+
+	//Moved to the new GUI System
+	/*void OnGUI () {
 		if (skin) {
 			GUI.skin = skin;
 			GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "");
 		}
-	}
+	}*/
 	
 	// Update is called once per frame
 	void Update () {
