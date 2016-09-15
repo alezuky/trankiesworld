@@ -162,7 +162,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c36447b0379fa9c4da2a44fc48275f81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.77999997
+      value: 2.23000002
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c36447b0379fa9c4da2a44fc48275f81, type: 3}
       propertyPath: m_LocalPosition.z
@@ -354,7 +354,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c36447b0379fa9c4da2a44fc48275f81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.68000007
+      value: 2.13000011
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c36447b0379fa9c4da2a44fc48275f81, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4659,14 +4659,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 11470942, guid: ad68cb58796664a4a904b634727293b8, type: 2}
-      propertyPath: projectileforce
-      value: 25000
-      objectReference: {fileID: 0}
-    - target: {fileID: 11470942, guid: ad68cb58796664a4a904b634727293b8, type: 2}
-      propertyPath: firecooldown
-      value: .5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad68cb58796664a4a904b634727293b8, type: 2}
   m_IsPrefabParent: 0
@@ -5155,7 +5147,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 747565453}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4814394dfacf208428c3316f08434364, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -8844,7 +8836,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1264724478}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4814394dfacf208428c3316f08434364, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -13391,7 +13383,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11468000, guid: 0c576d5e4624e41dfa61dbba09a06d8a, type: 2}
       propertyPath: firecooldown
-      value: .5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13667994, guid: 0c576d5e4624e41dfa61dbba09a06d8a, type: 2}
+      propertyPath: m_Center.x
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c576d5e4624e41dfa61dbba09a06d8a, type: 2}
