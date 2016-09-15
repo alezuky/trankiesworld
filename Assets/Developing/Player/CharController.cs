@@ -182,7 +182,7 @@ public class CharController : MonoBehaviour
 		mouseDirection = (mousePos - transform.position).normalized;
 		
 		
-		//player to control
+		//select player to control
 		if (Input.GetKeyDown ("1") && numplayer != 1) {
 
 			//With Keyboard, we dont need the Kinect feedback
@@ -201,8 +201,6 @@ public class CharController : MonoBehaviour
 			numplayer = 2;
 		} else if (Input.GetKeyDown ("1") || Input.GetKeyDown ("2")) {
 			numplayer = 0;
-
-			numplayer = 2;
 		}
 		
 		//verify if this player and numplayer match

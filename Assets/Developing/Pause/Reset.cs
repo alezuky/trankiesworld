@@ -84,21 +84,22 @@ public class Reset : MonoBehaviour {
 			SendMessageUpwards("RestartGame");
 		}
 		//validation to avoid crash
-		if(kinect != null && kinect.tracked == true) {
-			
+		if(kinect != null && kinect.tracked == true || GameObject.FindObjectOfType<CharController>().numplayer != 0) {
 			if (!handsClosed) {
-				if (!kinect.SetFire() && !kinect.Propulsion()) {
-					handsClosed = true;
-					StartEffectsNextStep();
-				}
-			} else {
+                if (!kinect.SetFire() && !kinect.Propulsion() && kinect.tracked == true || (Input.GetKey(KeyCode.Space) && Input.GetMouseButton(0)))
+                {
+                    handsClosed = true;
+                    StartEffectsNextStep();
+                }
+
+            } else {
 				//right hand -> CONTINUE
-				if (kinect.SetFire()) {
+				if (kinect.SetFire() || Input.GetMouseButtonUp(0)) {
 					//SendMessageUpwards("RestartGame");
 					GameObject.FindGameObjectWithTag ("Kinect").GetComponent<Pause> ().ContinueGame (kinect.player);
 				}
 				// left hand -> RESET
-				if (kinect.Propulsion()) {
+				if (kinect.Propulsion() || Input.GetKeyUp(KeyCode.Space)) {
 					GameObject.FindGameObjectWithTag ("Kinect").GetComponent<Pause> ().ContinueGame (kinect.player);
 					Application.LoadLevel ("Spaceship_Level");
 				}

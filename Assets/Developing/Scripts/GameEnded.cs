@@ -78,10 +78,9 @@ public class GameEnded : MonoBehaviour {
 			SendMessageUpwards("RestartGame");
 		}
 		//validation to avoid crash
-		if(kinect != null && kinect.tracked == true || GameObject.FindObjectOfType<CharController>().numplayer!=0) {
-
-			if (!handsClosed || (Input.GetKey(KeyCode.Space) && Input.GetMouseButton(0))) {
-				if (!kinect.SetFire() && !kinect.Propulsion()) {
+		if(kinect != null && kinect.tracked == true || GameObject.FindObjectOfType<CharController>().numplayer!= 0) {
+			if (!handsClosed) {
+                if (!kinect.SetFire() && !kinect.Propulsion() && kinect.tracked == true || (Input.GetKey(KeyCode.Space) && Input.GetMouseButton(0))) {
 					handsClosed = true;
 					StartEffectsNextStep();
 				}
