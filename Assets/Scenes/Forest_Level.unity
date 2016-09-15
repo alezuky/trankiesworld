@@ -200,6 +200,10 @@ Prefab:
       propertyPath: respawnPositions.Array.data[4]
       value: 
       objectReference: {fileID: 1061663312}
+    - target: {fileID: 11468000, guid: 0c576d5e4624e41dfa61dbba09a06d8a, type: 2}
+      propertyPath: firecooldown
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c576d5e4624e41dfa61dbba09a06d8a, type: 2}
   m_IsPrefabParent: 0
@@ -1076,6 +1080,10 @@ Prefab:
     - target: {fileID: 472746, guid: 58ed6d423c64ace49901170b65320c8a, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472748, guid: 58ed6d423c64ace49901170b65320c8a, type: 2}
+      propertyPath: startTime
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58ed6d423c64ace49901170b65320c8a, type: 2}

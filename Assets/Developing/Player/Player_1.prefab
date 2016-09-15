@@ -3193,7 +3193,7 @@ MonoBehaviour:
   projectileforce: 25000
   ray: {fileID: 150762, guid: 3e50e01f1c15bdd40840e5b5d05e3796, type: 2}
   kinect: {fileID: 0}
-  firecooldown: .5
+  firecooldown: 1
   firelocal: {x: 0, y: 0, z: 0}
   firstShoot: 1
   fire: {fileID: 8300000, guid: a1033c2556d3d8d4e9e5d286e981a2b2, type: 3}

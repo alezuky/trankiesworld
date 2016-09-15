@@ -4,7 +4,12 @@ using System.Collections;
 public class Celebrates : MonoBehaviour {
 	
 	private Animator anim;	
+
 	private int shootHash = Animator.StringToHash ("shoot");
+
+	private int celebrate_1Hash = Animator.StringToHash ("celebrate_1");
+	private int celebrate_2Hash = Animator.StringToHash ("celebrate_2");
+
 	public GameObject birth;
 	public AudioClip winaudio;
 	private float celebratecooldown;
@@ -13,6 +18,8 @@ public class Celebrates : MonoBehaviour {
 	public bool stopWinner = false;
 
 	private bool mainmenu = false;
+
+	private int random_celebration = 0;
 	
 	// Use this for initialization
 	void Start () {
@@ -28,6 +35,14 @@ public class Celebrates : MonoBehaviour {
 		stopWinner = false;
 		winnerSet = true;
 		GetComponent<Rigidbody>().useGravity = false;
+
+
+		//Two types of celebration
+		random_celebration = Random.Range(0,3);
+		Debug.Log ("celebration = " + random_celebration.ToString());
+
+
+
 	}
 	
 	void StopWinner() {
@@ -46,10 +61,23 @@ public class Celebrates : MonoBehaviour {
 					SetWinner ();
 				}
 				celebratecooldown += Time.deltaTime;
-				gameObject.RotateAdd (new Vector3 (0, 90, 0), 1f, 0);
-				if (celebratecooldown > 0.9 && celebratecooldown < 1.1) {
+				gameObject.RotateAdd (new Vector3 (0, 90, 0), 1.5f, 0);
+				if (celebratecooldown > 1.4 && celebratecooldown < 1.6) {
 					GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
-					anim.SetTrigger (shootHash);
+
+
+					if (random_celebration == 1)
+					{
+						anim.SetTrigger (celebrate_1Hash);
+					}
+					else
+					{
+						anim.SetTrigger (celebrate_2Hash);
+					}
+
+
+
+
 					GameObject instbirth = Instantiate (birth, transform.position, transform.rotation) as GameObject;								
 					if (GameControl.GM.winner == 1) {
 						instbirth.transform.GetComponent<ParticleSystem> ().startColor = Color.blue;
@@ -59,6 +87,11 @@ public class Celebrates : MonoBehaviour {
 					AudioSource.PlayClipAtPoint (winaudio, transform.position);
 					celebratecooldown = 0;
 				}
+
+
+
+
+
 			} else {
 				if (!stopWinner) {
 					StopWinner ();
