@@ -185,8 +185,18 @@ public class CharController : MonoBehaviour
 		//player to control
 		if (Input.GetKeyDown ("1") && numplayer != 1) {
 
+			//With Keyboard, we dont need the Kinect feedback
+			kinect.manager.displayUserMap = false;
+			kinect.manager.GetComponent<KinectManager>().displayColorMap = false;
+			kinect.manager.GetComponent<KinectManager>().displaySkeletonLines = false;
+
 			numplayer = 1;
 		} else if (Input.GetKeyDown ("2") && numplayer != 2) {
+
+			//With Keyboard, we dont need the Kinect feedback
+			kinect.manager.displayUserMap = false;
+			kinect.manager.GetComponent<KinectManager>().displayColorMap = false;
+			kinect.manager.GetComponent<KinectManager>().displaySkeletonLines = false;
 
 			numplayer = 2;
 		} else if (Input.GetKeyDown ("1") || Input.GetKeyDown ("2")) {
