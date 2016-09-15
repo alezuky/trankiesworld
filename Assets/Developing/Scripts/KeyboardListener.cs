@@ -24,6 +24,9 @@ public class KeyboardListener : MonoBehaviour {
     }
 
     void Update () {
+
+		kinectfortesting = GameObject.FindGameObjectWithTag("Kinect");
+
         keyboard();
 
         if (!player1.GetComponent<CharController>().enabled)
@@ -37,15 +40,23 @@ public class KeyboardListener : MonoBehaviour {
 
     void keyboard()
     {
+
+
         if(!firstpress && Input.anyKey)
         {
             firstpress = false;
-            kinectfortesting = GameObject.Find("Kinect");
+            //kinectfortesting = GameObject.FindGameObjectWithTag("Kinect");
         }
 
         //player to control
         if (Input.GetKeyDown("1") && numplayer != 1)
         {
+			//With Keyboard, we dont need the Kinect feedback
+			kinectfortesting.GetComponent<KinectManager>().displayUserMap = false;
+			kinectfortesting.GetComponent<KinectManager>().displayColorMap = false;
+			kinectfortesting.GetComponent<KinectManager>().displaySkeletonLines = false;
+
+
             if (!player1.GetComponent<Shoots>().enabled)
             {
                 kinectfortesting.GetComponent<KinectManager>().player1added = true;
@@ -53,9 +64,18 @@ public class KeyboardListener : MonoBehaviour {
             }
             numplayer = 1;
 
+
+
         }
         else if (Input.GetKeyDown("2") && numplayer != 2)
         {
+
+			//With Keyboard, we dont need the Kinect feedback
+			kinectfortesting.GetComponent<KinectManager>().displayUserMap = false;
+			kinectfortesting.GetComponent<KinectManager>().displayColorMap = false;
+			kinectfortesting.GetComponent<KinectManager>().displaySkeletonLines = false;
+
+
             if (!player2.GetComponent<Shoots>().enabled)
             {
                 kinectfortesting.GetComponent<KinectManager>().player2added = true;

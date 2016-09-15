@@ -183,14 +183,17 @@ public class CharController : MonoBehaviour
 		
 		
 		//player to control
-		if (Input.GetKeyDown("1") && numplayer != 1)
+		if (Input.GetKeyDown ("1") && numplayer != 1) {
+
 			numplayer = 1;
-		
-		else if (Input.GetKeyDown("2") && numplayer != 2)
+		} else if (Input.GetKeyDown ("2") && numplayer != 2) {
+
 			numplayer = 2;
-		
-		else if(Input.GetKeyDown("1") || Input.GetKeyDown("2"))
+		} else if (Input.GetKeyDown ("1") || Input.GetKeyDown ("2")) {
 			numplayer = 0;
+
+			numplayer = 2;
+		}
 		
 		//verify if this player and numplayer match
 		bool aux = (("Player_" + numplayer) == thisplayer);
