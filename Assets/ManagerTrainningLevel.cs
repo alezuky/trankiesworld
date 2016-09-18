@@ -1,19 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ManagerTrainningLevel : MonoBehaviour {
 
     //Game Object Called BombBall
     public GameObject bombBall;
 
+    //Game Object Maked with BombaBall
+    public GameObject makedBombBall;
+
+    //Array String to manipulation of BombBall
+    public List<string> listNameBomBall;
+
     //This variable is used to set the level
-    public int numLevel = 1;
+    public int numLevel = 0;
 
-    //RateOfSpwan Balls
-    public float RateOfSpawn = 5;
-
-    //next Spawn Ball
-    private float nextSpawn = 0;
+    //This variable to controle avaliation about level
+    public bool avalLevel = false;
 
     //Variable Global to postion Area
     public Vector3 positionArea;
@@ -23,25 +27,34 @@ public class ManagerTrainningLevel : MonoBehaviour {
 
     int a = 0;
     // Use this for initialization
-    void Start () {
-
-        numLevel = 1;
+    void Awake () {
+        
+        numLevel = 1; 
+        avalLevel = true;
+        listNameBomBall = new List<string>();
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        // if (Time.time > nextSpawn) for spawn with time
-        if (numLevel == 1)
-        {
-            
-            nextSpawn = Time.time + RateOfSpawn;
+        if (avalLevel && numLevel != 0)
+        {   
+            //call the function to instantiate bombs per level         
             BombBallInstantieate(numLevel, positionArea);
-            numLevel = 0;
         }
+        else if (!avalLevel) {
 
-       
-
+            //listNameBomBall controls whether all the bombs were destroyed in the previous level
+            if (listNameBomBall.Count == 0)
+            {
+                //TernaryOperator to control 10 leves
+                numLevel = numLevel < 10 ? ++numLevel : 0;
+                avalLevel = true;
+            }
+        }
+             
+        
     }
 
     public void BombBallInstantieate(int numLevel, Vector3 positionArea) {
@@ -49,14 +62,129 @@ public class ManagerTrainningLevel : MonoBehaviour {
         if (numLevel == 1) {
 
             for (int i = 0; i <= 3; i++)
-            {                
-                positionArea = new Vector3(Random.Range(positionLeft.position.x+5f, positionRight.position.x-5f), Random.Range(positionTop.position.y-5, positionBottom.position.y+5f), 0f); 
-                Instantiate(bombBall, positionArea, Quaternion.identity);
-                bombBall.name = "BombBall "+(i+1);
-                Debug.Log(positionArea);
-                
-            }            
+            {
+                bombBallInstantiate(i);
+            }           
+        }
 
+        else if (numLevel == 2)
+        {
+
+            for (int i = 0; i <= 6; i++)
+            {
+                bombBallInstantiate(i);
+            }
+        }
+
+        else if (numLevel == 3)
+        {
+
+            for (int i = 0; i <= 8; i++)
+            {
+                bombBallInstantiate(i);
+            }
+        }
+
+        else if (numLevel == 4)
+        {
+
+            for (int i = 0; i <= 10; i++)
+            {
+                bombBallInstantiate(i);
+            }
+        }
+
+        else if (numLevel == 5)
+        {
+
+            for (int i = 0; i <= 12; i++)
+            {
+                bombBallInstantiate(i);
+            }
+        }
+
+        else if (numLevel == 6)
+        {
+
+            for (int i = 0; i <= 14; i++)
+            {
+                bombBallInstantiate(i);
+            }
+        }
+
+        else if (numLevel == 7)
+        {
+
+            for (int i = 0; i <= 16; i++)
+            {
+                bombBallInstantiate(i);
+            }
+        }
+
+        else  if (numLevel == 8)
+        {
+
+            for (int i = 0; i <= 18; i++)
+            {
+                bombBallInstantiate(i);
+            }
+        }
+
+        else if (numLevel == 9)
+        {
+
+            for (int i = 0; i <= 20; i++)
+            {
+                bombBallInstantiate(i);
+            }
+        }
+
+        else if (numLevel == 10)
+        {
+
+            for (int i = 0; i <= 22; i++)
+            {
+                bombBallInstantiate(i);
+            }
+        }
+
+
+        avalLevel = false;      
+
+    }
+
+    //positionArea provides a random position between the limits
+    public Vector3 positionAreaRandom() {
+        //return positionArea = new Vector3(Random.Range(positionLeft.position.x + 1f, positionRight.position.x - 1f), Random.Range(positionTop.position.y - 1f, positionBottom.position.y + 1f), 0f);
+        return positionArea = new Vector3(Random.Range(-22, 22), Random.Range(12, 28), 0f);
+
+    }
+
+    //Instantiate one BombBall renamed and include to list controller bomb 
+    public GameObject bombBallInstantiate(int numberBomb) {
+        
+        //Instatiation
+        GameObject makedBombBall = Instantiate(bombBall, positionAreaRandom(), Quaternion.identity) as GameObject;
+
+        //Rename BombBall
+        makedBombBall.name = "BombBall " + (numberBomb + 1);
+
+        //ListBombLevel
+        listNameBomBall.Add(makedBombBall.name);
+
+        return makedBombBall;
+
+    }
+
+    public void bombExplode(string name)
+    {
+        foreach(string bombToExplode in listNameBomBall)
+        {
+            if (bombToExplode == name) {
+                listNameBomBall.Remove(name);                
+                Destroy(GameObject.Find(name));
+            }
         }
     }
+
 }
