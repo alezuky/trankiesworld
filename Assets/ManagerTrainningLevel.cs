@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -25,13 +26,22 @@ public class ManagerTrainningLevel : MonoBehaviour {
     //Tranforms positions limits, very important to Position Area
     public Transform positionLeft, positionRight, positionTop, positionBottom;
 
-    int a = 0;
-    // Use this for initialization
+    //Waiting controller for levels
+    public bool waitLevelSeconds = true;
+
+    //NoWaiting controller for levels
+    public bool noWaitLevelSeconds = false;
+
+    //Gui Text to show the level to player
+    //public GUIText levelText;
+
+
     void Awake () {
         
         numLevel = 1; 
         avalLevel = true;
         listNameBomBall = new List<string>();
+
         
     }
 	
@@ -39,18 +49,37 @@ public class ManagerTrainningLevel : MonoBehaviour {
 	void Update () {
 
         if (avalLevel && numLevel != 0)
-        {   
-            //call the function to instantiate bombs per level         
-            BombBallInstantieate(numLevel, positionArea);
+        {
+            if (waitLevelSeconds) {
+                //Called this function we have a little time to show the number level
+                StartCoroutine(waitLevel());
+            }
+            else if (noWaitLevelSeconds) { 
+                 //call the function to instantiate bombs per level         
+                 BombBallInstantieate(numLevel, positionArea);
+             }
+            
         }
         else if (!avalLevel) {
 
             //listNameBomBall controls whether all the bombs were destroyed in the previous level
             if (listNameBomBall.Count == 0)
             {
-                //TernaryOperator to control 10 leves
-                numLevel = numLevel < 10 ? ++numLevel : 0;
-                avalLevel = true;
+                if (waitLevelSeconds)
+                {
+                    StartCoroutine(waitLevel());
+                }
+                else if (noWaitLevelSeconds)
+                {
+                    //TernaryOperator to control 10 leves
+                    numLevel = numLevel < 10 ? ++numLevel : 0;
+
+                    //Gui to show the current level
+                    //levelText.text = numLevel != 0 ? "Level: " + numLevel : "EXIT LEVEL";
+                    avalLevel = true;
+                }
+
+                
             }
         }
              
@@ -149,7 +178,10 @@ public class ManagerTrainningLevel : MonoBehaviour {
         }
 
 
-        avalLevel = false;      
+        avalLevel = false;
+
+        //Inverte the waiting status to outher turns
+        StartCoroutine(nowaitLevel());
 
     }
 
@@ -176,8 +208,8 @@ public class ManagerTrainningLevel : MonoBehaviour {
 
     }
 
-    public void bombExplode(string name)
-    {
+    public void bombExplode(string name) {
+
         foreach(string bombToExplode in listNameBomBall)
         {
             if (bombToExplode == name) {
@@ -185,6 +217,26 @@ public class ManagerTrainningLevel : MonoBehaviour {
                 Destroy(GameObject.Find(name));
             }
         }
+
     }
+
+    IEnumerator nowaitLevel() {
+        waitLevelSeconds = true;
+        yield return new WaitForSeconds(0f);
+        noWaitLevelSeconds = false;
+        Debug.Log("BELIVE");
+       
+    }
+
+    IEnumerator waitLevel()
+    {
+        waitLevelSeconds = false;
+        yield return new WaitForSeconds(5f);
+        noWaitLevelSeconds = true;
+        Debug.Log("No belive");
+        
+    }
+
+
 
 }
