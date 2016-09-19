@@ -11073,6 +11073,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7891185243423a448bda23340a456ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1880831015}
+  expelingforce: {x: 0, y: 200, z: 0}
 --- !u!135 &1678372065
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13160,6 +13162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7891185243423a448bda23340a456ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1299662831}
+  expelingforce: {x: 0, y: 200, z: 0}
 --- !u!135 &1884328181
 SphereCollider:
   m_ObjectHideFlags: 0

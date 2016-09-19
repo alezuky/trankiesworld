@@ -17,7 +17,7 @@ public class ForceFieldTrigger : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.CompareTag("Projectile"))
+		if (other.gameObject.CompareTag("Projectile") && other.GetComponent<Projectile>().owner == player.name)
 		    {
 			Debug.Log("Explosion");
 			Explosion();

@@ -71,8 +71,18 @@ public class Shoots : MonoBehaviour
 
     void FixedUpdate()
     {
+		//Trying to make the ponter appear a little in front of Player - not working yet
+		/*
+		float firelocaldirection = 0.5f;
+		if (transform.rotation.y > 90) {
+			firelocaldirection = - 3f;	
+			firstShoot = false;
+			Debug.Log ("changing_direction");
+		}
+		*/
 
-        firelocal = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+
+		firelocal = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         firetimer = firetimer + Time.deltaTime;
         
         if(!gameObject.GetComponent<CharController>().enabled)
@@ -88,7 +98,7 @@ public class Shoots : MonoBehaviour
         if (kinect.SetFire() || ((Input.GetButton("Fire1_P1") || Input.GetButton("Fire1_P2")) && gameObject.name == "Player_" + numplayer))
         {
             gameObject.SendMessageUpwards("Fire");
-            anim.SetTrigger(shootHash);
+            //anim.SetTrigger(shootHash);
         }
 
     }
@@ -121,11 +131,22 @@ public class Shoots : MonoBehaviour
             //Debug.Log("Poiting");
             if (firstShoot)
             {
+
+				//if (rays[raycount]) Destroy(rays[raycount]);
+
                 rays[raycount] = Instantiate(ray, firelocal, Quaternion.LookRotation(useDirection)) as GameObject;
                 //rays[raycount].GetComponent<Renderer>().material.color = kinect.color;
                 //rays[raycount].GetComponent<Light>().color = kinect.color;
-                firstShoot = false;
+                
+				//Physics.IgnoreCollision(ray.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
+
+
+
+				firstShoot = false;
                 //Debug.Log("Instantiating Pointer");
+
+
+
             }
 
             rays[raycount].GetComponent<Renderer>().enabled = true;
@@ -213,6 +234,7 @@ public class Shoots : MonoBehaviour
     {
         if (safetyTime && firetimer > firecooldown)
         {
+			Debug.Log("Firing");
 
             GameObject objectProjectile = Instantiate(projectile, firelocal, transform.rotation) as GameObject;
             Projectile proj = objectProjectile.GetComponent("Projectile") as Projectile;
@@ -244,6 +266,7 @@ public class Shoots : MonoBehaviour
             instprojectile.GetComponent<Rigidbody>().AddForce(totalforce);
             AudioSource.PlayClipAtPoint(fire, transform.position);
             Physics.IgnoreCollision(instprojectile.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
+			anim.SetTrigger(shootHash);
 
             firetimer = 0;
         }

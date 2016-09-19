@@ -2595,7 +2595,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.86000013, y: 9.56000042, z: 0}
+  m_LocalPosition: {x: 7.54699993, y: 10.5600004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 468078}
@@ -3094,7 +3094,7 @@ TrailRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6fc960f282b3f8b438d7529e75343956, type: 2}
+  - {fileID: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3237,9 +3237,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .25
-  m_Height: 1.20000005
+  m_Height: 1.29999995
   m_Direction: 1
-  m_Center: {x: -.300000012, y: .100000001, z: 0}
+  m_Center: {x: .100000001, y: .100000001, z: 0}
 --- !u!137 &13767994
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
