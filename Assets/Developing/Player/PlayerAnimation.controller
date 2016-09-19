@@ -67,9 +67,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.125
+  m_TransitionDuration: .125
   m_TransitionOffset: 0
-  m_ExitTime: 0.9
+  m_ExitTime: .899999976
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -91,9 +91,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.125
+  m_TransitionDuration: .125
   m_TransitionOffset: 0
-  m_ExitTime: 0.9
+  m_ExitTime: .899999976
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -112,9 +112,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.12765957
+  m_TransitionDuration: .127659574
   m_TransitionOffset: 0
-  m_ExitTime: 0.5
+  m_ExitTime: .5
   m_HasExitTime: 1
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -136,9 +136,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.125
+  m_TransitionDuration: .125
   m_TransitionOffset: 0
-  m_ExitTime: 0.9
+  m_ExitTime: .899999976
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -157,9 +157,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.125
+  m_TransitionDuration: .125
   m_TransitionOffset: 0
-  m_ExitTime: 0.5
+  m_ExitTime: .5
   m_HasExitTime: 1
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -181,9 +181,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.125
+  m_TransitionDuration: .125
   m_TransitionOffset: 0
-  m_ExitTime: 0.9
+  m_ExitTime: .899999976
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -205,9 +205,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.125
+  m_TransitionDuration: .125
   m_TransitionOffset: 0
-  m_ExitTime: 0.9
+  m_ExitTime: .899999976
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -229,9 +229,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 1.963492
+  m_TransitionDuration: 1.96349204
   m_TransitionOffset: 0
-  m_ExitTime: 0.9
+  m_ExitTime: .899999976
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -301,9 +301,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.125
+  m_TransitionDuration: .125
   m_TransitionOffset: 0
-  m_ExitTime: 0.9
+  m_ExitTime: .899999976
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -325,9 +325,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.125
+  m_TransitionDuration: .125
   m_TransitionOffset: 0
-  m_ExitTime: 0.9
+  m_ExitTime: .899999976
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -349,9 +349,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.12765957
+  m_TransitionDuration: .127659574
   m_TransitionOffset: 0
-  m_ExitTime: 0.9
+  m_ExitTime: .899999976
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -519,17 +519,12 @@ AnimatorStateMachine:
     m_Position: {x: 768, y: 72, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110203847}
-<<<<<<< HEAD
     m_Position: {x: 408, y: 48, z: 0}
-=======
-    m_Position: {x: 108, y: -48, z: 0}
->>>>>>> origin/Nameku
   - serializedVersion: 1
     m_State: {fileID: 110295666}
-    m_Position: {x: 336, y: -132, z: 0}
+    m_Position: {x: 324, y: -72, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110250587}
-<<<<<<< HEAD
     m_Position: {x: 156, y: 204, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110236874}
@@ -537,9 +532,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 110295566}
     m_Position: {x: -252, y: -120, z: 0}
-=======
-    m_Position: {x: 252, y: 156, z: 0}
->>>>>>> origin/Nameku
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 110172906}
