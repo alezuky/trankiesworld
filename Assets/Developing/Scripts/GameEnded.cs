@@ -86,12 +86,12 @@ public class GameEnded : MonoBehaviour {
 				}
 			} else {
 				//right hand -> play again
-				if (kinect.SetFire() || Input.GetMouseButtonUp(0)) {
+				if (kinect.SetFire() || Input.GetMouseButtonDown(0)) {
 					//SendMessageUpwards("RestartGame");
 					Application.LoadLevel (Application.loadedLevel);
 				}
 				// left hand -> quit
-				if (kinect.Propulsion() || Input.GetKeyUp(KeyCode.Space)) {
+				if (kinect.Propulsion() || Input.GetKeyDown(KeyCode.Space)) {
 					Application.LoadLevel ("Spaceship_Level");
 				}
 			}

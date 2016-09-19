@@ -83,12 +83,12 @@ public class Quit : MonoBehaviour {
                     }
                 } else {
 					//right hand -> CONTINUE
-					if (kinect.SetFire () || Input.GetMouseButtonUp(0)) {
+					if (kinect.SetFire () || Input.GetMouseButtonDown(0)) {
 						//SendMessageUpwards("RestartGame");
 						GameObject.FindGameObjectWithTag ("Kinect").GetComponent<Pause> ().ContinueGame (kinect.player);
 					}
 					// left hand -> Quit
-					if (kinect.Propulsion () || Input.GetKeyUp(KeyCode.Space)) {
+					if (kinect.Propulsion () || Input.GetKeyDown(KeyCode.Space)) {
 						Debug.Log ("quitting");
 						Application.Quit();
 					}

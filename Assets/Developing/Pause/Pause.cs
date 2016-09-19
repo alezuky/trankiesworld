@@ -70,8 +70,10 @@ public void PauseGame ( int p )
 		otherplayer.GetComponent<Collider>().isTrigger = false;
 		otherplayer.GetComponent<Rigidbody>().useGravity = true;
 		otherplayer.GetComponent<GestureListener>().enabled = true;
-		
-		Destroy(GameObject.Find("PauseScene(Clone)").gameObject);
+
+		GameObject pausescene = GameObject.Find ("PauseScene(Clone)");
+		if (pausescene) Destroy(pausescene.gameObject);
+
 		otherplayer.transform.position = otheroriginalposition;
 		otherplayer.GetComponent<Renderer>().enabled = true;
 		player.transform.position = originalposition;

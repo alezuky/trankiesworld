@@ -94,12 +94,12 @@ public class Reset : MonoBehaviour {
 
             } else {
 				//right hand -> CONTINUE
-				if (kinect.SetFire() || Input.GetMouseButtonUp(0)) {
+				if (kinect.SetFire() || Input.GetMouseButtonDown(0)) {
 					//SendMessageUpwards("RestartGame");
 					GameObject.FindGameObjectWithTag ("Kinect").GetComponent<Pause> ().ContinueGame (kinect.player);
 				}
 				// left hand -> RESET
-				if (kinect.Propulsion() || Input.GetKeyUp(KeyCode.Space)) {
+				if (kinect.Propulsion() || Input.GetKeyDown(KeyCode.Space)) {
 					GameObject.FindGameObjectWithTag ("Kinect").GetComponent<Pause> ().ContinueGame (kinect.player);
 					Application.LoadLevel ("Spaceship_Level");
 				}

@@ -1055,11 +1055,11 @@ GameObject:
   - 114: {fileID: 11470942}
   - 114: {fileID: 11470940}
   - 114: {fileID: 11470938}
-  - 96: {fileID: 9670936}
   - 54: {fileID: 5470936}
   - 136: {fileID: 13670936}
   - 114: {fileID: 11470936}
   - 95: {fileID: 9570938}
+  - 96: {fileID: 9625128}
   m_Layer: 0
   m_Name: Player_1
   m_TagString: Player
@@ -2560,7 +2560,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.42000008, y: 9.56599998, z: 0}
+  m_LocalPosition: {x: -6.28000021, y: 10.6499996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 470956}
@@ -3084,20 +3084,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!96 &9670936
+--- !u!96 &9625128
 TrailRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170988}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 6b3e4e6970f754822ac98cb224018411, type: 2}
+  m_Materials: []
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
+  m_UseLightProbes: 1
   m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
@@ -3108,16 +3107,16 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Time: .5
-  m_StartWidth: .200000003
-  m_EndWidth: 0
+  m_Time: 5
+  m_StartWidth: 1
+  m_EndWidth: 1
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
-      rgba: 4290520849
+      rgba: 4294967295
     m_Color[1]:
       serializedVersion: 2
-      rgba: 4294958848
+      rgba: 4294967295
     m_Color[2]:
       serializedVersion: 2
       rgba: 4294967295
@@ -3127,7 +3126,7 @@ TrailRenderer:
     m_Color[4]:
       serializedVersion: 2
       rgba: 16777215
-  m_MinVertexDistance: .0299999993
+  m_MinVertexDistance: .100000001
   m_Autodestruct: 0
 --- !u!114 &11470936
 MonoBehaviour:
