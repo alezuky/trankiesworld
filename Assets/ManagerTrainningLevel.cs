@@ -33,7 +33,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
     public bool noWaitLevelSeconds = false;
 
     //Gui Text to show the level to player
-    //public GUIText levelText;
+    public Text levelText;
 
 
     void Awake () {
@@ -41,6 +41,8 @@ public class ManagerTrainningLevel : MonoBehaviour {
         numLevel = 1; 
         avalLevel = true;
         listNameBomBall = new List<string>();
+        levelText = GameObject.Find("LevelText").GetComponent<Text>();
+        levelText.text = "Trankies' Trainning";
 
         
     }
@@ -48,19 +50,30 @@ public class ManagerTrainningLevel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (avalLevel && numLevel != 0)
+        if (avalLevel && numLevel <= 10)
         {
-            if (waitLevelSeconds) {
+            if (waitLevelSeconds)
+            {
                 //Called this function we have a little time to show the number level
                 StartCoroutine(waitLevel());
             }
-            else if (noWaitLevelSeconds) { 
-                 //call the function to instantiate bombs per level         
-                 BombBallInstantieate(numLevel, positionArea);
-             }
-            
+            else if (noWaitLevelSeconds)
+            {
+
+                //Gui to show the current level
+                levelText.text = "Level: " + numLevel;
+
+                //call the function to instantiate bombs per level         
+                BombBallInstantieate(numLevel, positionArea);
+            }
+
         }
-        else if (!avalLevel) {
+        else if (numLevel == 11)
+        {
+            levelText.text = "EXIT LEVEL";
+        }
+        else if (!avalLevel)
+        {
 
             //listNameBomBall controls whether all the bombs were destroyed in the previous level
             if (listNameBomBall.Count == 0)
@@ -72,14 +85,13 @@ public class ManagerTrainningLevel : MonoBehaviour {
                 else if (noWaitLevelSeconds)
                 {
                     //TernaryOperator to control 10 leves
-                    numLevel = numLevel < 10 ? ++numLevel : 0;
+                    numLevel = numLevel < 10 ? ++numLevel : 11;
 
-                    //Gui to show the current level
-                    //levelText.text = numLevel != 0 ? "Level: " + numLevel : "EXIT LEVEL";
+                    //Check e change the avaliator status
                     avalLevel = true;
                 }
 
-                
+
             }
         }
              
@@ -90,8 +102,9 @@ public class ManagerTrainningLevel : MonoBehaviour {
         
         if (numLevel == 1) {
 
-            for (int i = 0; i <= 3; i++)
+            for (int i = 0; i <= 1; i++)
             {
+                // Variable i is used to set name object instantiate
                 bombBallInstantiate(i);
             }           
         }
@@ -99,7 +112,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 2)
         {
 
-            for (int i = 0; i <= 6; i++)
+            for (int i = 0; i <= 1; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -108,7 +121,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 3)
         {
 
-            for (int i = 0; i <= 8; i++)
+            for (int i = 0; i <= 1; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -117,7 +130,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 4)
         {
 
-            for (int i = 0; i <= 10; i++)
+            for (int i = 0; i <= 1; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -126,7 +139,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 5)
         {
 
-            for (int i = 0; i <= 12; i++)
+            for (int i = 0; i <= 1; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -135,7 +148,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 6)
         {
 
-            for (int i = 0; i <= 14; i++)
+            for (int i = 0; i <= 1; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -144,7 +157,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 7)
         {
 
-            for (int i = 0; i <= 16; i++)
+            for (int i = 0; i <= 1; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -153,7 +166,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else  if (numLevel == 8)
         {
 
-            for (int i = 0; i <= 18; i++)
+            for (int i = 0; i <= 1; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -162,7 +175,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 9)
         {
 
-            for (int i = 0; i <= 20; i++)
+            for (int i = 0; i <= 1; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -171,7 +184,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 10)
         {
 
-            for (int i = 0; i <= 22; i++)
+            for (int i = 0; i <= 1; i++)
             {
                 bombBallInstantiate(i);
             }

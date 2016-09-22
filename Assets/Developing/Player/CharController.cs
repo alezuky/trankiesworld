@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 //using UnityEditor;
 using System.Collections;
 
@@ -44,9 +45,12 @@ public class CharController : MonoBehaviour
 	public int numplayer = 0;
 	public Vector3 mousePos;
 	public Vector3 mouseDirection;
-	
-	
-	void Awake()
+
+    //Gui Text to show the level to player
+    public Text playerSelected;
+
+
+    void Awake()
 	{
 		
 		// Matches with the script for Kinect
@@ -63,9 +67,11 @@ public class CharController : MonoBehaviour
 		
 		propulsionForce = 950f;
 		moveSpeed = 20000f;
-		
-		
-	}
+
+        playerSelected = GameObject.Find("PlayerSelected").GetComponent<Text>();
+
+
+    }
 	
 	void Start()
 	{
@@ -100,8 +106,13 @@ public class CharController : MonoBehaviour
 	
 	public void OnGUI()
 	{
-		if (numplayer != 0)
-			GUI.Label(new Rect(Screen.width / 2.0f, 60, 150, 100), "Player_" + numplayer);
+        if (numplayer != 0) {
+
+            playerSelected.text = "Player" +numplayer;
+
+        } else if (playerSelected == null) {
+            GUI.Label(new Rect(Screen.width / 2.0f, 60, 150, 100), "Player_" + numplayer);
+        }
 		
 	}
 	

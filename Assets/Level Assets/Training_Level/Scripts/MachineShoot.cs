@@ -24,37 +24,47 @@ public class MachineShoot : MonoBehaviour
 		bool rebate = false;
 		
 		public AudioClip fire;
-		
-		
-		void Start ()
+
+        public GameObject proje;
+        public string nameProjectile;
+        public int numproject = 0;
+
+
+
+        void Start ()
 		{
 			
-			firecooldown = 3f;
+			firecooldown = 0.1f;
 			firetimer2 = 0f;
 			firstShoot = true;
 	
 		}
 		
 		
-		void FixedUpdate ()
+		void Update ()
 		{
-	
-			firelocal = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
-			firetimer2 = firetimer2 + Time.deltaTime;	
-			Debug.Log (firecooldown + " Updating firetimer " + firetimer2);
-			//Point ();
-			if (firetimer2 > firecooldown) {
-			firetimer2 = firetimer2 - firecooldown;	
 
-			Fire ();
-				
-				}
+            firelocal = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            firetimer2 = firetimer2 + Time.deltaTime;
+            Debug.Log(firecooldown + " Updating firetimer " + firetimer2);
 
-				
-		}
-		
-		
-		public void Point ()
+            //Point ();
+            if (firetimer2 > firecooldown)
+            {
+
+                firetimer2 = firetimer2 - firecooldown;
+                Fire();
+
+            }
+        
+            //proje = GameObject.Find(nameProjectile);
+            //proje.gameObject.GetComponent<Rigidbody>().AddForce(proje.transform.forward*1000);
+
+
+        }
+
+
+    public void Point ()
 		{
 			if (Physics.Raycast (transform.position, new Vector3(0,1,0), out hit)) {
 				//Physics.IgnoreCollision (instprojectile.collider, transform.root.collider);
@@ -147,14 +157,17 @@ public class MachineShoot : MonoBehaviour
 */
 				// TODO set color of projectile ~> change mash renderer material
 				
-				Transform instprojectile = Instantiate (projectile, firelocal, transform.rotation) as Transform;
-				
-		instprojectile.gameObject.GetComponent<Rigidbody>().AddForce (new Vector3(projectileforce,projectileforce,projectileforce));
-				AudioSource.PlayClipAtPoint(fire, transform.position);
+				GameObject instprojectile = Instantiate (projectile, firelocal, transform.rotation) as GameObject;
+
+                instprojectile.name = "project" + numproject;
+                nameProjectile = instprojectile.name;
+
+                //instprojectile.gameObject.GetComponent<Rigidbody>().AddForce (new Vector3(projectileforce,projectileforce,projectileforce));
+                AudioSource.PlayClipAtPoint(fire, transform.position);
 				//Physics.IgnoreCollision (instprojectile.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
 
-		Debug.Log (firecooldown + " Firing " + firetimer2);
-		return;
+		        Debug.Log (firecooldown + " Firing " + firetimer2);
+		
 			
 		}
 		
