@@ -70,6 +70,11 @@ public class CharController : MonoBehaviour
 
         playerSelected = GameObject.Find("PlayerSelected").GetComponent<Text>();
 
+        //if (Application.loadedLevelName == "Trainning_Level"){
+        //    
+        //}
+
+
 
     }
 	
@@ -106,7 +111,7 @@ public class CharController : MonoBehaviour
 	
 	public void OnGUI()
 	{
-        if (numplayer != 0) {
+        if (numplayer != 0 /*&& Application.loadedLevelName == "Trainning_Level"*/) {
 
             playerSelected.text = "Player" +numplayer;
 

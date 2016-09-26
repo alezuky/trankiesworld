@@ -35,6 +35,9 @@ public class ManagerTrainningLevel : MonoBehaviour {
     //Gui Text to show the level to player
     public Text levelText;
 
+    //BombBallAnimator to control differents animations
+    //public Animator animBombBall;
+
 
     void Awake () {
         
@@ -43,8 +46,10 @@ public class ManagerTrainningLevel : MonoBehaviour {
         listNameBomBall = new List<string>();
         levelText = GameObject.Find("LevelText").GetComponent<Text>();
         levelText.text = "Trankies' Trainning";
+        //animBombBall = GameObject.Find("BombBall").GetComponent<Animator>();
 
-        
+
+
     }
 	
 	// Update is called once per frame
@@ -62,7 +67,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
 
                 //Gui to show the current level
                 levelText.text = "Level: " + numLevel;
-
+                
                 //call the function to instantiate bombs per level         
                 BombBallInstantieate(numLevel, positionArea);
             }
@@ -86,6 +91,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
                 {
                     //TernaryOperator to control 10 leves
                     numLevel = numLevel < 10 ? ++numLevel : 11;
+                    //animBombBall.SetInteger("levelBombBall", numLevel);
 
                     //Check e change the avaliator status
                     avalLevel = true;
@@ -112,16 +118,17 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 2)
         {
 
-            for (int i = 0; i <= 1; i++)
+            for (int i = 0; i <= 2; i++)
             {
                 bombBallInstantiate(i);
+                
             }
         }
 
         else if (numLevel == 3)
         {
 
-            for (int i = 0; i <= 1; i++)
+            for (int i = 0; i <= 4; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -130,7 +137,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 4)
         {
 
-            for (int i = 0; i <= 1; i++)
+            for (int i = 0; i <= 8; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -139,7 +146,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 5)
         {
 
-            for (int i = 0; i <= 1; i++)
+            for (int i = 0; i <= 10; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -148,7 +155,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 6)
         {
 
-            for (int i = 0; i <= 1; i++)
+            for (int i = 0; i <= 12; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -157,7 +164,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 7)
         {
 
-            for (int i = 0; i <= 1; i++)
+            for (int i = 0; i <= 14; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -166,7 +173,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else  if (numLevel == 8)
         {
 
-            for (int i = 0; i <= 1; i++)
+            for (int i = 0; i <= 16; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -175,7 +182,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 9)
         {
 
-            for (int i = 0; i <= 1; i++)
+            for (int i = 0; i <= 18; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -184,7 +191,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 10)
         {
 
-            for (int i = 0; i <= 1; i++)
+            for (int i = 0; i <= 22; i++)
             {
                 bombBallInstantiate(i);
             }
@@ -223,13 +230,16 @@ public class ManagerTrainningLevel : MonoBehaviour {
 
     public void bombExplode(string name) {
 
-        foreach(string bombToExplode in listNameBomBall)
-        {
-            if (bombToExplode == name) {
-                listNameBomBall.Remove(name);                
-                Destroy(GameObject.Find(name));
-            }
-        }
+        //foreach(string bombToExplode in listNameBomBall)
+        //{
+        //    if (bombToExplode == name) {
+        //        listNameBomBall.Remove(name);                
+        //        Destroy(GameObject.Find(name));
+        //    }
+        //}
+
+        listNameBomBall.Remove(name);
+        Destroy(GameObject.Find(name));
 
     }
 
@@ -237,7 +247,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         waitLevelSeconds = true;
         yield return new WaitForSeconds(0f);
         noWaitLevelSeconds = false;
-        Debug.Log("BELIVE");
+        
        
     }
 
@@ -246,7 +256,6 @@ public class ManagerTrainningLevel : MonoBehaviour {
         waitLevelSeconds = false;
         yield return new WaitForSeconds(5f);
         noWaitLevelSeconds = true;
-        Debug.Log("No belive");
         
     }
 

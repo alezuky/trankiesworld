@@ -3,116 +3,182 @@ using System.Collections;
 
 public class MachineShooting : MonoBehaviour {
 
-    public int damagePerShot = 20;
-    public float timeBetweenBullets = 0.15f;
-    public float range = 30f;
+    public int damagePerShot = 1;
+    public float fireRate = 2f;
+    public float weaponRange = 100f;
+    public float hitForce = 100f;
+    public Transform machineEnd;
+    public GameObject projectile = null;
+
+    private WaitForSeconds shotDuration = new WaitForSeconds(2f);
+    private AudioSource machineAudio;
+    private LineRenderer machineLine;
+    private float nextFire = 0.25f;
+    private Vector3 posOrigin;
+
     public MachineController machinePlataform;
 
-    float timer;
-    Ray shootRay;
-    RaycastHit shootHit;
+    
+    public Ray shootRay;
+    RaycastHit shootHit = new RaycastHit();
     int shootableMask;
     ParticleSystem machineParticles;
-    LineRenderer machineLine;
-    AudioSource machineAudio;
+
+
     Light machineLight;
-    public float effectsDisplayTime = 0.1f;
+   
 
+    // Use this for initialization
+    void Awake () {
 
-	// Use this for initialization
-	void Awake () {
-
+        // Create a layer mask for the Shootable layer.
         shootableMask = LayerMask.GetMask("Shootable");
         machineParticles = GetComponent<ParticleSystem>();
         machineLine = GetComponent<LineRenderer>();
         machineAudio = GetComponent<AudioSource>();
         machineLight = GetComponent<Light>();
-        
+        machineEnd = GetComponent<Transform>();
+
 
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-        // Add the time since Update was last called to the timer.
-        timer += Time.deltaTime;
-        timeBetweenBullets = Random.Range(3f, 5f);
-        //
-        if (timer >= timeBetweenBullets)
-        {
-            // ... shoot the machine.
-            Shoot();
-            PlataformCantMove();
-        }
 
-        // If the timer has exceeded the proportion of timeBetweenBullets that the effects should be displayed for...
-        if (timer >= timeBetweenBullets * effectsDisplayTime)
+    // Update is called once per frame
+    void Update () {
+
+        //shootRay.origin = new Vector3(0 , 0, 0);
+
+        if (Time.time > nextFire)
         {
-            // ... disable the effects.
-            DisableEffects();
+            
+            nextFire = Time.time + fireRate;
+
+            StartCoroutine(ShotEffect());
+
+            //shootRay.origin = new Vector3(transform.position.x, transform.position.y, 0);
+            //shootRay.origin = new Vector3(transform.position.x+ weaponRange, transform.position.y + weaponRange, 0);
+            //shootRay.origin = new Vector3(transform.position.x + weaponRange, transform.position.y + weaponRange, 0);
+            shootRay.origin = machineEnd.transform.position;
+            //No change This Code Nameku ¬_¬
+            //shootRay.direction = new Vector3(Random.Range(-transform.up.x, transform.up.x), Random.Range(-transform.up.y, transform.up.y), Random.Range(-transform.up.z, transform.up.y));
+            //No change This Code Nameku ¬_¬
+            //shootRay.direction = new Vector3(transform.position.x + weaponRange, transform.position.y + weaponRange, 0);
+            shootRay.direction = new Vector3(1,0,0);
             PlataformCanMove();
+
+            machineLine.SetPosition(0, new Vector3(1, 0, 0));
+            machineLine.SetPosition(1, new Vector3(0, 0, 0));
+            
+            
+            if (Physics.Raycast(shootRay.origin, shootRay.direction, out shootHit, weaponRange))
+            {
+
+                
+                machineLine.SetPosition(0, shootHit.point);
+                
+                Debug.Log("Hitou"+ shootHit.point);
+
+                TrankiesHealth health = shootHit.collider.GetComponent<TrankiesHealth>();
+                if (health != null)
+                {
+                    health.TakeDamage(damagePerShot);
+                    
+                }
+
+                if (shootHit.rigidbody != null)
+                {
+                    shootHit.rigidbody.AddForce(-shootHit.normal * hitForce);
+                }
+            }
+            else
+            {
+                machineLine.SetPosition(1, shootRay.origin + (shootRay.direction * weaponRange));
+                //machineLine.SetPosition(1, shootRay.origin + shootRay.direction * weaponRange);
+                //machineLine.SetPosition(1, new Vector3(0, 60, 0));
+                
+                //machineLine.SetPosition(1, new Vector3(0, 0, 0));
+
+            }
         }
+
+
     }
 
-    public void DisableEffects()
+    private IEnumerator ShotEffect()
     {
         // Disable the line renderer and the light.
+        machineLine.enabled = true;
+        machineLight.enabled = true;
+        yield return shotDuration;
         machineLine.enabled = false;
         machineLight.enabled = false;
     }
 
-    void Shoot()
-    {
-        // Reset the timer.
-        timer = 0f;
+    //void Shoot()
+    //{
+    //    // Reset the timer.
+    //    timer = 0f;
 
-        // Play the gun shot audioclip.
-        machineAudio.Play();
+    //    // Play the gun shot audioclip.
+    //    //machineAudio.Play();
 
-        // Enable the light.
-        machineLight.enabled = true;
+    //    // Enable the light.
+    //    machineLight.enabled = true;
 
-        // Stop the particles from playing if they were, then start the particles.
-        machineParticles.Stop();
-        machineParticles.Play();
+    //    // Stop the particles from playing if they were, then start the particles.
+    //    machineParticles.Stop();
+    //    machineParticles.Play();
 
-        // Enable the line renderer and set it's first position to be the end of the machine.
-        machineLine.enabled = true;
-        machineLine.SetPosition(0, transform.position);
-
-
-
-        // Set the shootRay so that it starts at the end of the machine and points forward from the barrel.
-        shootRay.origin = new Vector3(-25, 10, 0);
-        shootRay.direction = new Vector3(transform.up.x, transform.up.y, 0);
+    //    // Enable the line renderer and set it's first position to be the end of the machine.
+    //    // Enable the line renderer and set it's first position to be the end of the gun.
+    //    machineLine.enabled = true;
+    //    machineLine.SetPosition(0, transform.position);
 
 
-        // Perform the raycast against gameobjects on the shootable layer and if it hits something...
-        if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
-        {
-            // Try and find an Player script on the gameobject hit.
-            TrankiesHealth trankiesHealth = shootHit.collider.GetComponent<TrankiesHealth>();
+
+    //    // Set the shootRay so that it starts at the end of the machine and points forward from the barrel.
+    //    //shootRay.origin = new Vector3(-25, 10, 0);
+    //    //shootRay.direction = new Vector3(transform.up.x, transform.up.y, 0);
+
+    //    shootRay.origin = transform.position;
+    //    shootRay.direction = transform.forward;
+
+    //    Debug.DrawRay(shootRay.origin, shootRay.direction, Color.red);
+    //    if (Physics.Raycast(shootRay.origin, shootRay.direction, out shootHit, 30))
+    //    {
             
-            // If the EnemyHealth component exist...
-            if (trankiesHealth != null)
-            {
-                // ... the enemy should take damage.
-                trankiesHealth.TakeDamage(damagePerShot);
-                //}
+    //        if (shootHit.collider.gameObject.name == "Player_1")
+    //        {
+    //            Debug.Log("HIT");
+    //        }
+    //    }
 
-                // Set the second position of the line renderer to the point the raycast hit.
-                machineLine.SetPosition(1, shootHit.point);
-            }
-            // If the raycast didn't hit anything on the shootable layer...
-            else
-            {
-                // ... set the second position of the line renderer to the fullest extent of the gun's range.
-                machineLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
-            }
-        }
+    //    // Perform the raycast against gameobjects on the shootable layer and if it hits something...
+    //    if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
+    //    {
+            
+    //        // Try and find an Player script on the gameobject hit.
+    //        TrankiesHealth trankiesHealth = shootHit.collider.GetComponent<TrankiesHealth>();
 
+    //        // If the TrankiesHealth component exist...
+    //        if (trankiesHealth != null)
+    //        {
+    //            // ... the Trankies should take damage.
+    //            trankiesHealth.TakeDamage(damagePerShot);
+    //            //}
+
+    //            // Set the second position of the line renderer to the point the raycast hit.
+    //            machineLine.SetPosition(1, shootHit.point);
+    //        }
+    //        // If the raycast didn't hit anything on the shootable layer...
+    //        else
+    //        {
+    //            // ... set the second position of the line renderer to the fullest extent of the gun's range.
+    //            machineLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
+    //        }
+    //    }
         
-       }
+    //   }
 
     void PlataformCanMove()
     {

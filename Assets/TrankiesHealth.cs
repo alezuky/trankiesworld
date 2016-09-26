@@ -6,10 +6,10 @@ public class TrankiesHealth : MonoBehaviour
     public float m_StartingHealth = 100f;               // The amount of health each trankies starts with.
     public Slider m_Slider;                             // The slider to represent how much health the trankies currently has.
     public Image m_FillImage;                           // The image component of the slider.
-    public Color m_FullHealthColor = Color.green;       // The color the health bar will be when on full health.
-    public Color m_ZeroHealthColor = Color.red;         // The color the health bar will be when on no health.
+    public Color m_FullHealthColor = Color.grey;       // The color the health bar will be when on full health.
+    public Color m_ZeroHealthColor = Color.white;         // The color the health bar will be when on no health.
     public GameObject m_ExplosionPrefab;                // A prefab that will be instantiated in Awake, then used whenever the tank dies.
-
+    CapsuleCollider capsuleCollider;                     // Reference to the capsule collider.
 
     private AudioSource m_ExplosionAudio;               // The audio source to play when the tank explodes.
     private ParticleSystem m_ExplosionParticles;        // The particle system the will play when the tank is destroyed.
@@ -17,6 +17,7 @@ public class TrankiesHealth : MonoBehaviour
     public bool m_Dead;                                // Has the tank been reduced beyond zero health yet?
     ParticleSystem hitParticles;
 
+    public bool hit = false;
 
     private void Awake()
     {
@@ -28,18 +29,23 @@ public class TrankiesHealth : MonoBehaviour
 
         // Disable the prefab so it can be activated when it's required.
         m_ExplosionParticles.gameObject.SetActive(false);
+
+        capsuleCollider = GetComponent<CapsuleCollider>();
     }
 
     void Update()
     {
+        SetHealthUI();
+
         if (m_CurrentHealth <= 0)
         {
             m_Dead = true;
+
+            if (m_Dead)
+                OnDeath();
         }
-        else {
-            m_Dead = false;
-        }
-            
+
+        
     }
 
 
@@ -55,7 +61,8 @@ public class TrankiesHealth : MonoBehaviour
 
 
     public void TakeDamage(int amount)
-    {        
+    {
+        
 
         // Reduce current health by the amount of damage done.
         m_CurrentHealth -= amount;
@@ -67,17 +74,14 @@ public class TrankiesHealth : MonoBehaviour
         //hitParticles.Play();
 
         // Change the UI elements appropriately.
-        SetHealthUI();
+        //SetHealthUI();
 
         // If the current health is at or below zero and it has not yet been registered, call OnDeath.
-        if (m_CurrentHealth <= 0f && !m_Dead)
+        if (m_CurrentHealth <= 0f && m_Dead == true)
         {
             OnDeath();
         }
     }
-
-
-
 
     private void SetHealthUI()
     {
@@ -94,6 +98,9 @@ public class TrankiesHealth : MonoBehaviour
         // Set the flag so that this function is only called once.
         m_Dead = true;
 
+        // Turn the collider into a trigger so shots can pass through it.
+        //capsuleCollider.isTrigger = true;
+
         // Move the instantiated explosion prefab to the tank's position and turn it on.
         m_ExplosionParticles.transform.position = transform.position;
         m_ExplosionParticles.gameObject.SetActive(true);
@@ -105,6 +112,7 @@ public class TrankiesHealth : MonoBehaviour
         m_ExplosionAudio.Play();
 
         // Turn the trankies off.
-        gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
+        
     }
 }

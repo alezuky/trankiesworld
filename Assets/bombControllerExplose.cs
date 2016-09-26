@@ -7,7 +7,7 @@ public class bombControllerExplose : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 
-
+        scriptManagerTrainningLevel = ScriptableObject.FindObjectOfType<ManagerTrainningLevel>();
     }
 
     void OnTriggerEnter(Collider other)

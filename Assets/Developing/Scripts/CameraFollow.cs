@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class CameraFollow : MonoBehaviour {
 	public Vector3 halfwayMultiplier = new Vector3(0.5f, 0.5f, -30);
@@ -15,12 +17,13 @@ public class CameraFollow : MonoBehaviour {
 
 	private Camera cam;
 
-	void Start() {
+
+    void Start() {
 		// set screen scale to open the field of view
 		float screenRatio = (float) Screen.width / (float) Screen.height;
 		cam = GetComponent<Camera>();
 
-		switch (screenRatio.ToString("0.00")) {
+        switch (screenRatio.ToString("0.00")) {
 		case "1.25":	// 5:4
 			distanceScale = 1.55f;
 			break;
@@ -57,8 +60,18 @@ public class CameraFollow : MonoBehaviour {
 	}
 
 	void OnEnable() {
-		p1 = (Transform) GameObject.Find("Player_1").GetComponent("Transform");
-		p2 = (Transform) GameObject.Find("Player_2").GetComponent("Transform");
+
+        //When the level is equal "Training_Level" , load one player else load two player
+        if (Application.loadedLevelName == "Training_Level")
+        {
+            p1 = (Transform)GameObject.Find("Player_1").GetComponent("Transform");
+            
+        }
+        else {
+            p1 = (Transform)GameObject.Find("Player_1").GetComponent("Transform");
+            p2 = (Transform)GameObject.Find("Player_2").GetComponent("Transform");
+
+        }
 	}
 
 	void RestartGame() {
