@@ -76,7 +76,7 @@ public class Quit : MonoBehaviour {
 			if (kinect != null && kinect.tracked == true || GameObject.FindObjectOfType<CharController>().numplayer != 0) {
 			
 				if (!handsClosed) {
-                    if (!kinect.SetFire() && !kinect.Propulsion() && kinect.tracked == true || (Input.GetKey(KeyCode.Space) && Input.GetMouseButton(0)))
+                    if (!kinect.SetFire() && !kinect.Propulsion() && kinect.tracked == true || !(Input.GetKey(KeyCode.Space) && Input.GetMouseButton(0)))
                     {
                         handsClosed = true;
                         StartEffectsNextStep();
