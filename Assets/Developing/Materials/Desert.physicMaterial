@@ -6,11 +6,11 @@ PhysicMaterial:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Desert
-  dynamicFriction: .899999976
-  staticFriction: .899999976
+  dynamicFriction: 100
+  staticFriction: 100
   bounciness: 0
   frictionCombine: 3
   bounceCombine: 1
   frictionDirection2: {x: 0, y: 0, z: 0}
-  dynamicFriction2: 0
-  staticFriction2: 0
+  dynamicFriction2: 1
+  staticFriction2: 1
