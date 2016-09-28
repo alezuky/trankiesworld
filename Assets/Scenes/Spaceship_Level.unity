@@ -2091,6 +2091,18 @@ Prefab:
       propertyPath: scene
       value: 
       objectReference: {fileID: 902485506}
+    - target: {fileID: 11431382, guid: c2d677a6921334880aaf2ee40c1d7f72, type: 2}
+      propertyPath: clock
+      value: 
+      objectReference: {fileID: 104106, guid: 01b6b89b039020d4380cca8237bbd719, type: 2}
+    - target: {fileID: 11431382, guid: c2d677a6921334880aaf2ee40c1d7f72, type: 2}
+      propertyPath: timeLoad
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431382, guid: c2d677a6921334880aaf2ee40c1d7f72, type: 2}
+      propertyPath: clockPosition
+      value: 
+      objectReference: {fileID: 1123355034}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2d677a6921334880aaf2ee40c1d7f72, type: 2}
   m_IsPrefabParent: 0
@@ -4657,7 +4669,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 470988, guid: ad68cb58796664a4a904b634727293b8, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad68cb58796664a4a904b634727293b8, type: 2}
@@ -5489,6 +5501,14 @@ Prefab:
       propertyPath: scene
       value: 
       objectReference: {fileID: 902485506}
+    - target: {fileID: 11431382, guid: c2d677a6921334880aaf2ee40c1d7f72, type: 2}
+      propertyPath: clock
+      value: 
+      objectReference: {fileID: 104106, guid: 01b6b89b039020d4380cca8237bbd719, type: 2}
+    - target: {fileID: 11431382, guid: c2d677a6921334880aaf2ee40c1d7f72, type: 2}
+      propertyPath: timeLoad
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2d677a6921334880aaf2ee40c1d7f72, type: 2}
   m_IsPrefabParent: 0
@@ -8180,6 +8200,33 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f287796c91605a5448b94983589c5778, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1123355034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1123355035}
+  m_Layer: 0
+  m_Name: Clock_Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1123355035
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1123355034}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
+  m_LocalPosition: {x: -.0700000003, y: 2.80100012, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1146277240}
+  m_RootOrder: 6
 --- !u!4 &1132552402 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 699824381a1fa18439a58f87b60bbee8, type: 3}
@@ -13379,7 +13426,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 468054, guid: 0c576d5e4624e41dfa61dbba09a06d8a, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11468000, guid: 0c576d5e4624e41dfa61dbba09a06d8a, type: 2}
       propertyPath: projectileforce
@@ -14694,7 +14741,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416468, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd90251a1df532a47a1c3881b5e45f9f, type: 2}
