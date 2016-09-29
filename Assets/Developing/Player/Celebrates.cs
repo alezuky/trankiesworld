@@ -2,7 +2,10 @@
 using System.Collections;
 
 public class Celebrates : MonoBehaviour {
-	
+
+    private float volume = 0.1f;
+
+
 	private Animator anim;	
 
 	private int shootHash = Animator.StringToHash ("shoot");
@@ -84,7 +87,7 @@ public class Celebrates : MonoBehaviour {
 					} else {
 						instbirth.transform.GetComponent<ParticleSystem> ().startColor = Color.red;
 					}
-					AudioSource.PlayClipAtPoint (winaudio, transform.position);
+					AudioSource.PlayClipAtPoint (winaudio, transform.position, volume);
 					celebratecooldown = 0;
 				}
 

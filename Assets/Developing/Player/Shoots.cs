@@ -264,7 +264,9 @@ public class Shoots : MonoBehaviour
             }
 
             instprojectile.GetComponent<Rigidbody>().AddForce(totalforce);
-            AudioSource.PlayClipAtPoint(fire, transform.position);
+
+
+            AudioSource.PlayClipAtPoint(fire, transform.position, 9F);
             Physics.IgnoreCollision(instprojectile.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
 			anim.SetTrigger(shootHash);
 

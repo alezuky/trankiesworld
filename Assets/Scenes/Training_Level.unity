@@ -939,6 +939,21 @@ Prefab:
       propertyPath: players.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013472722350, guid: 351c44da8d7daf24bb278673a7506263,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000013472722350, guid: 351c44da8d7daf24bb278673a7506263,
+        type: 2}
+      propertyPath: Priority
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000013472722350, guid: 351c44da8d7daf24bb278673a7506263,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 351c44da8d7daf24bb278673a7506263, type: 2}
   m_IsPrefabParent: 0
