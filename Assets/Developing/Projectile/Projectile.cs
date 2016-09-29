@@ -57,22 +57,19 @@ public class Projectile : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collisionInfo) {
 
-        //if (Application.loadedLevelName == "Trainning_Level" && collisionInfo.collider.tag == "Player")
-        //{
+        TrankiesHealth health = collisionInfo.collider.GetComponent<TrankiesHealth>();
+        if (health != null && collisionInfo.gameObject.tag == "Player")
+        {
+            health.TakeDamage(damagePerShot, collisionInfo.transform.position);
+            Debug.Log("Take Damage");
 
-        //    TrankiesHealth health = collisionInfo.collider.GetComponent<TrankiesHealth>();
-        //    if (health != null)
-        //    {
-        //        health.TakeDamage(damagePerShot);
-        //    }
-
-        //}
+        }
 
         if (mainmenu == false)
 		{
 		if (collisionInfo.collider.tag == "Player") {
 
-                
+              
 
                 if (owner != collisionInfo.collider.name) {
 				switch (owner) {

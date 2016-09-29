@@ -68,17 +68,18 @@ public class CharController : MonoBehaviour
 		propulsionForce = 950f;
 		moveSpeed = 20000f;
 
-        playerSelected = GameObject.Find("PlayerSelected").GetComponent<Text>();
 
-        //if (Application.loadedLevelName == "Trainning_Level"){
-        //    
-        //}
+
+        if (Application.loadedLevelName == "Trainning_Level")
+        {
+            playerSelected = GameObject.Find("PlayerSelected").GetComponent<Text>();
+        }
 
 
 
     }
-	
-	void Start()
+
+    void Start()
 	{
 		
 		body = GetComponent<Rigidbody>();
@@ -111,7 +112,7 @@ public class CharController : MonoBehaviour
 	
 	public void OnGUI()
 	{
-        if (numplayer != 0 /*&& Application.loadedLevelName == "Trainning_Level"*/) {
+        if (numplayer != 0 && Application.loadedLevelName == "Training_Level") {
 
             playerSelected.text = "Player" +numplayer;
 

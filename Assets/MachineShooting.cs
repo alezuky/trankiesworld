@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MachineShooting : MonoBehaviour {
+public class MachineShooting : MonoBehaviour
+{
 
     public int damagePerShot = 1;
     public float fireRate = 2f;
     public float weaponRange = 100f;
-    public float hitForce = 100f;
+    public float hitForce = 1000f;
     public Transform machineEnd;
     public GameObject projectile = null;
 
@@ -18,7 +19,7 @@ public class MachineShooting : MonoBehaviour {
 
     public MachineController machinePlataform;
 
-    
+
     public Ray shootRay;
     RaycastHit shootHit = new RaycastHit();
     int shootableMask;
@@ -26,10 +27,11 @@ public class MachineShooting : MonoBehaviour {
 
 
     Light machineLight;
-   
+
 
     // Use this for initialization
-    void Awake () {
+    void Awake()
+    {
 
         // Create a layer mask for the Shootable layer.
         shootableMask = LayerMask.GetMask("Shootable");
@@ -41,16 +43,19 @@ public class MachineShooting : MonoBehaviour {
 
 
 
+
+
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
         //shootRay.origin = new Vector3(0 , 0, 0);
 
         if (Time.time > nextFire)
         {
-            
+
             nextFire = Time.time + fireRate;
 
             StartCoroutine(ShotEffect());
@@ -63,26 +68,26 @@ public class MachineShooting : MonoBehaviour {
             //shootRay.direction = new Vector3(Random.Range(-transform.up.x, transform.up.x), Random.Range(-transform.up.y, transform.up.y), Random.Range(-transform.up.z, transform.up.y));
             //No change This Code Nameku ¬_¬
             //shootRay.direction = new Vector3(transform.position.x + weaponRange, transform.position.y + weaponRange, 0);
-            shootRay.direction = new Vector3(1,0,0);
+            shootRay.direction = new Vector3(1, 0, 0);
             PlataformCanMove();
 
             machineLine.SetPosition(0, new Vector3(1, 0, 0));
             machineLine.SetPosition(1, new Vector3(0, 0, 0));
-            
-            
+
+
             if (Physics.Raycast(shootRay.origin, shootRay.direction, out shootHit, weaponRange))
             {
 
-                
+
                 machineLine.SetPosition(0, shootHit.point);
-                
-                Debug.Log("Hitou"+ shootHit.point);
+
+                Debug.Log("Hitou" + shootHit.point);
 
                 TrankiesHealth health = shootHit.collider.GetComponent<TrankiesHealth>();
                 if (health != null)
                 {
-                    health.TakeDamage(damagePerShot);
-                    
+                    health.TakeDamage(damagePerShot, shootHit.point);
+
                 }
 
                 if (shootHit.rigidbody != null)
@@ -95,7 +100,7 @@ public class MachineShooting : MonoBehaviour {
                 machineLine.SetPosition(1, shootRay.origin + (shootRay.direction * weaponRange));
                 //machineLine.SetPosition(1, shootRay.origin + shootRay.direction * weaponRange);
                 //machineLine.SetPosition(1, new Vector3(0, 60, 0));
-                
+
                 //machineLine.SetPosition(1, new Vector3(0, 0, 0));
 
             }
@@ -146,7 +151,7 @@ public class MachineShooting : MonoBehaviour {
     //    Debug.DrawRay(shootRay.origin, shootRay.direction, Color.red);
     //    if (Physics.Raycast(shootRay.origin, shootRay.direction, out shootHit, 30))
     //    {
-            
+
     //        if (shootHit.collider.gameObject.name == "Player_1")
     //        {
     //            Debug.Log("HIT");
@@ -156,7 +161,7 @@ public class MachineShooting : MonoBehaviour {
     //    // Perform the raycast against gameobjects on the shootable layer and if it hits something...
     //    if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
     //    {
-            
+
     //        // Try and find an Player script on the gameobject hit.
     //        TrankiesHealth trankiesHealth = shootHit.collider.GetComponent<TrankiesHealth>();
 
@@ -177,7 +182,7 @@ public class MachineShooting : MonoBehaviour {
     //            machineLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
     //        }
     //    }
-        
+
     //   }
 
     void PlataformCanMove()
@@ -190,5 +195,7 @@ public class MachineShooting : MonoBehaviour {
         machinePlataform.setMove(false);
     }
 
-
 }
+
+   
+

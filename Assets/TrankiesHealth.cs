@@ -8,14 +8,16 @@ public class TrankiesHealth : MonoBehaviour
     public Image m_FillImage;                           // The image component of the slider.
     public Color m_FullHealthColor = Color.grey;       // The color the health bar will be when on full health.
     public Color m_ZeroHealthColor = Color.white;         // The color the health bar will be when on no health.
-    public GameObject m_ExplosionPrefab;                // A prefab that will be instantiated in Awake, then used whenever the tank dies.
+    public GameObject m_ExplosionPrefab;
+    public GameObject m_HitExplosionPrefab;                    // A prefab that will be instantiated in Awake, then used whenever the tank dies.
     CapsuleCollider capsuleCollider;                     // Reference to the capsule collider.
 
     private AudioSource m_ExplosionAudio;               // The audio source to play when the tank explodes.
-    private ParticleSystem m_ExplosionParticles;        // The particle system the will play when the tank is destroyed.
+    private ParticleSystem m_ExplosionParticles;
+    private ParticleSystem hitParticles;// The particle system the will play when the tank is destroyed.
     public float m_CurrentHealth;                      // How much health the tank currently has.
     public bool m_Dead;                                // Has the tank been reduced beyond zero health yet?
-    ParticleSystem hitParticles;
+    
 
     public bool hit = false;
 
@@ -24,6 +26,8 @@ public class TrankiesHealth : MonoBehaviour
         // Instantiate the explosion prefab and get a reference to the particle system on it.
         m_ExplosionParticles = Instantiate(m_ExplosionPrefab).GetComponent<ParticleSystem>();
 
+        hitParticles = Instantiate(m_HitExplosionPrefab).GetComponent<ParticleSystem>();
+
         // Get a reference to the audio source on the instantiated prefab.
         m_ExplosionAudio = m_ExplosionParticles.GetComponent<AudioSource>();
 
@@ -31,6 +35,8 @@ public class TrankiesHealth : MonoBehaviour
         m_ExplosionParticles.gameObject.SetActive(false);
 
         capsuleCollider = GetComponent<CapsuleCollider>();
+
+        
     }
 
     void Update()
@@ -60,7 +66,7 @@ public class TrankiesHealth : MonoBehaviour
     }
 
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount , Vector3 hitPoint)
     {
         
 
@@ -68,10 +74,10 @@ public class TrankiesHealth : MonoBehaviour
         m_CurrentHealth -= amount;
 
         // Set the position of the particle system to where the hit was sustained.
-        //hitParticles.transform.position = hitPoint;
+        hitParticles.transform.position = hitPoint;
 
         // And play the particles.
-        //hitParticles.Play();
+        hitParticles.Play();
 
         // Change the UI elements appropriately.
         //SetHealthUI();
@@ -111,6 +117,9 @@ public class TrankiesHealth : MonoBehaviour
         // Play the tank explosion sound effect.
         m_ExplosionAudio.Play();
 
+        Destroy(GameObject.FindGameObjectWithTag("Pointer_Players"));
+        
+        
         // Turn the trankies off.
         this.gameObject.SetActive(false);
         
