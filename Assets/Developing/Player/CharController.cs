@@ -351,16 +351,3 @@ public class CharController : MonoBehaviour
 	}
 	
 }
-//[System.Serializable]
-//[CustomEditor(typeof(CharController))]
-//public class CharControllerEditor : Editor
-//{
-//    public override void OnInspectorGUI()
-//    {
-//        DrawDefaultInspector();
-//        CharController a = (CharController)target;
-
-//        EditorGUILayout.Toggle("Alternative Control", a.altContr);
-
-//    }
-//}
