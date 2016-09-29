@@ -321,22 +321,16 @@ public class CharController : MonoBehaviour
 			
 			if (kinect.GetMainForces() == "right")
 			{
-				//if (transform.eulerAngles.y != 0) {
-				//	gameObject.RotateTo (new Vector3 (transform.eulerAngles.x, 0, transform.eulerAngles.z), 1f, 0f);
-				//}
-				body.AddForce(new Vector3(totalspeed, 0, 0));
-				//anim.SetFloat(speedHash, totalspeed);
-				//AudioSource.PlayClipAtPoint(forward, transform.position);
+
+				//I multiplied the total speed by 2 here to improve player experience
+				body.AddForce(new Vector3(totalspeed*2, 0, 0));
+
 			}
 			
 			if (kinect.GetMainForces() == "left")
 			{
-				//if (transform.eulerAngles.y != 180) {
-				//	gameObject.RotateTo (new Vector3 (transform.eulerAngles.x, 180, transform.eulerAngles.z), 1f, 0f);
-				//}
-				body.AddForce(new Vector3(-totalspeed, 0, 0));
-				//anim.SetFloat(speedHash, totalspeed);
-				//AudioSource.PlayClipAtPoint(forward, transform.position);
+				//I multiplied the total speed by 2 here to improve player experience
+				body.AddForce(new Vector3(-totalspeed*2, 0, 0));
 			}
 			
 			//Forces from the velocity of the hand movements
@@ -374,16 +368,3 @@ public class CharController : MonoBehaviour
 	}
 	
 }
-//[System.Serializable]
-//[CustomEditor(typeof(CharController))]
-//public class CharControllerEditor : Editor
-//{
-//    public override void OnInspectorGUI()
-//    {
-//        DrawDefaultInspector();
-//        CharController a = (CharController)target;
-
-//        EditorGUILayout.Toggle("Alternative Control", a.altContr);
-
-//    }
-//}

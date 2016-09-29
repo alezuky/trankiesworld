@@ -3656,7 +3656,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 82e2cf03896e2fd4e9b8eb23c2b286bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: .000104726307
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 82e2cf03896e2fd4e9b8eb23c2b286bf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3944,7 +3944,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 414612195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalPosition: {x: 35.6199989, y: 18.2099991, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6244,7 +6244,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 417764, guid: 97211c7713023ce45aaf5dce81bb3c5a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.5
+      value: 18.3999996
       objectReference: {fileID: 0}
     - target: {fileID: 417764, guid: 97211c7713023ce45aaf5dce81bb3c5a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -6277,6 +6277,10 @@ Prefab:
     - target: {fileID: 173510, guid: 97211c7713023ce45aaf5dce81bb3c5a, type: 2}
       propertyPath: m_Name
       value: DeathZone (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 417764, guid: 97211c7713023ce45aaf5dce81bb3c5a, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 140.682877
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97211c7713023ce45aaf5dce81bb3c5a, type: 2}
@@ -9223,7 +9227,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 14.1653023, y: 2, z: 14.4987593}
-  m_Center: {x: 0, y: -1.25, z: 0}
+  m_Center: {x: 0, y: -1.64999998, z: 0}
 --- !u!4 &1318184065 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 82e2cf03896e2fd4e9b8eb23c2b286bf, type: 3}
@@ -11717,7 +11721,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 417764, guid: 97211c7713023ce45aaf5dce81bb3c5a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.5
+      value: 18.3999996
       objectReference: {fileID: 0}
     - target: {fileID: 417764, guid: 97211c7713023ce45aaf5dce81bb3c5a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -11750,6 +11754,10 @@ Prefab:
     - target: {fileID: 173510, guid: 97211c7713023ce45aaf5dce81bb3c5a, type: 2}
       propertyPath: m_Name
       value: DeathZone (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 417764, guid: 97211c7713023ce45aaf5dce81bb3c5a, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 140.682877
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97211c7713023ce45aaf5dce81bb3c5a, type: 2}
@@ -12140,7 +12148,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 14.1653023, y: 2, z: 14.4987593}
-  m_Center: {x: 0, y: -1.25, z: 1.1920929e-06}
+  m_Center: {x: 0, y: -1.64999998, z: 1.1920929e-06}
 --- !u!4 &1811827277 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 82e2cf03896e2fd4e9b8eb23c2b286bf, type: 3}
@@ -12790,7 +12798,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 14.1653023, y: 2, z: 14.4987593}
-  m_Center: {x: 0, y: -1.25, z: 1.1920929e-06}
+  m_Center: {x: 0, y: -1.64999998, z: 1.1920929e-06}
 --- !u!4 &1909250125 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 82e2cf03896e2fd4e9b8eb23c2b286bf, type: 3}
