@@ -8,9 +8,6 @@ TagManager:
   - Projectile
   - Kinect
   - Player
-  - Pointer
-  - Pointer_Players
-  - BombExplosionParticle
   layers:
   - Default
   - TransparentFX

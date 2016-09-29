@@ -6,9 +6,9 @@ public class MachineController : MonoBehaviour {
     
     public Vector3 positionStart;
     public Vector3 positionEnd;
-    public float secondsForOneLength = 20f;
+    private float secondsForOneLength = 20f;
     public bool canMove;
-    
+    public float time;
     
 
     void Start()
@@ -34,15 +34,5 @@ public class MachineController : MonoBehaviour {
     public void setMove(bool control)
     {
         canMove = control;
-    }
-
-    public void changeStatus()
-    {
-        this.gameObject.SetActive(true);
-    }
-
-    public void changeTime(float timeChanged)
-    {
-        secondsForOneLength = timeChanged;
     }
 }

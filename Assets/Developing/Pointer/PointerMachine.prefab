@@ -17,7 +17,7 @@ GameObject:
   - 96: {fileID: 9692924}
   m_Layer: 0
   m_Name: PointerMachine
-  m_TagString: Pointer
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
