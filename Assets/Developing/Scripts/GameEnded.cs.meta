@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: cdef48de71d93f040b7b8a8e2620cbe5
+<<<<<<< HEAD
 timeCreated: 1475000643
 licenseType: Pro
+=======
+>>>>>>> origin/IC_17_marcossuzuki
 MonoImporter:
   serializedVersion: 2
   defaultReferences: []
@@ -9,4 +12,7 @@ MonoImporter:
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
+<<<<<<< HEAD
   assetBundleVariant: 
+=======
+>>>>>>> origin/IC_17_marcossuzuki

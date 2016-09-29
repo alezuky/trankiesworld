@@ -80,18 +80,18 @@ public class GameEnded : MonoBehaviour {
 		//validation to avoid crash
 		if(kinect != null && kinect.tracked == true || GameObject.FindObjectOfType<CharController>().numplayer!= 0) {
 			if (!handsClosed) {
-                if (!kinect.SetFire() && !kinect.Propulsion() && kinect.tracked == true || !(Input.GetKey(KeyCode.Space) && Input.GetMouseButton(0))) {
+                if (!kinect.SetFire() && !kinect.Propulsion() && !(Input.GetKey(KeyCode.Space) && Input.GetMouseButton(0))) {
 					handsClosed = true;
 					StartEffectsNextStep();
 				}
 			} else {
 				//right hand -> play again
-				if (kinect.SetFire() || Input.GetMouseButtonUp(0)) {
+				if (kinect.SetFire() || Input.GetMouseButtonDown(0)) {
 					//SendMessageUpwards("RestartGame");
 					Application.LoadLevel (Application.loadedLevel);
 				}
 				// left hand -> quit
-				if (kinect.Propulsion() || Input.GetKeyUp(KeyCode.Space)) {
+				if (kinect.Propulsion() || Input.GetKeyDown(KeyCode.Space)) {
 					Application.LoadLevel ("Spaceship_Level");
 				}
 			}
