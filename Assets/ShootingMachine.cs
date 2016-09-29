@@ -4,7 +4,7 @@ using System.Collections;
 public class ShootingMachine : MonoBehaviour
 {
     public GestureListener kinect;
-    public GameObject projectile = null;
+    //public GameObject projectile = null;
     public GameObject ray = null;
 
     public float projectileforce = 25000f;
@@ -12,6 +12,7 @@ public class ShootingMachine : MonoBehaviour
     public int numplayer = 0;
 
     public bool firstShoot = true;
+    public bool canFire = true;
     public float firecooldown = 0.5f;
     public float fireRate = 0.25f;
 
@@ -19,14 +20,15 @@ public class ShootingMachine : MonoBehaviour
     public Vector3 firelocal;
     public Transform machineEnd;
     public AudioClip fire;
+    
 
     private float nextFire;
     private float firetimer;
-    private float hitForce = 100f;
+    private float hitForce = 1000f;
     private bool safetyTime = false;
     private Vector3 scale;
     private Vector3 totalforce;
-    private WaitForSeconds shotDuration = new WaitForSeconds(1f);
+    private WaitForSeconds shotDuration = new WaitForSeconds(0.01f);
 
     bool rebate = false;
     float size = 0;
@@ -36,7 +38,10 @@ public class ShootingMachine : MonoBehaviour
     RaycastHit hitRebate;
     RaycastHit rebateRebate;
     Light machineLight;
-    
+
+    public GameObject machinePlataform;
+
+
 
     IEnumerator SafetyTime()
     {
@@ -54,7 +59,6 @@ public class ShootingMachine : MonoBehaviour
         // Matches with the script for Kinect
         kinect = this.GetComponent<GestureListener>();
 
-
         if (string.Compare(Application.loadedLevelName, "Trainning_Level")==0)
         {
             this.enabled = false;
@@ -63,14 +67,15 @@ public class ShootingMachine : MonoBehaviour
         firetimer = 0;
         firstShoot = true;
         machineEnd = GetComponent<Transform>();
+        
+
 
     }
 
     void Start()
     {
-
-        StartCoroutine("SafetyTime");
         
+        StartCoroutine("SafetyTime");
 
     }
 
@@ -80,16 +85,13 @@ public class ShootingMachine : MonoBehaviour
         
         firelocal = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         firetimer = firetimer + Time.deltaTime;
-
-        
-
-        if (Time.time > nextFire)
+        if (canFire && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Point();
-
+            StartCoroutine("ShotEffect");
         }
-
+       
         
 
     }
@@ -97,10 +99,13 @@ public class ShootingMachine : MonoBehaviour
     private IEnumerator ShotEffect()
     {
         // Disable the line renderer and the light.
-        
+        Debug.Log("Entrou");       
+        canFire = false;
         yield return shotDuration;
-        Destroy(rays[raycount].GetComponent<Renderer>());
-        
+        Destroy(rays[raycount]);
+        Debug.Log("Saiu");        
+        canFire = true;
+
 
     }
 
@@ -109,8 +114,8 @@ public class ShootingMachine : MonoBehaviour
 
     public void Point()
     {
-        
-               
+
+
         useDirection = new Vector3(1, 0, 0);
         if (Physics.Raycast(transform.position, useDirection, out hit))
         {
@@ -121,7 +126,7 @@ public class ShootingMachine : MonoBehaviour
 
             if (health != null)
             {
-                health.TakeDamage(damagePerShot);
+                health.TakeDamage(damagePerShot, hit.point);
                 Debug.Log("Take Damage");
 
             }
@@ -141,25 +146,43 @@ public class ShootingMachine : MonoBehaviour
             rays[raycount] = Instantiate(ray, firelocal, Quaternion.LookRotation(useDirection)) as GameObject;
             //rays[raycount].GetComponent<Renderer>().material.color = kinect.color;
             //rays[raycount].GetComponent<Light>().color = kinect.color;
-
+            rays[raycount].name = "pointer_";
             firstShoot = false;
             //Debug.Log("Instantiating Pointer");
 
 
-        
+
 
             rays[raycount].GetComponent<Renderer>().enabled = true;
 
             scale = rays[raycount].transform.localScale;
-            scale.z = hit.distance;
+            scale.z += hit.distance;
             rays[raycount].transform.localScale = scale;
-       
+
         }
     }
 
+    public void setMachineProp(int dPShot, float fRate, float hForce, float wfseconds, float timeMachine)
+    {
 
-  
-    
+       damagePerShot = dPShot;
+       fireRate = fRate;
+       hitForce = hForce;
+       WaitForSeconds shotDuration = new WaitForSeconds(wfseconds);
+       machinePlataform.GetComponent<MachineController>().changeTime(timeMachine);
 
 
+    }
+
+    public void changeMachineStatus()
+    {
+        machinePlataform.GetComponent<MachineController>().changeStatus();
+        
+
+
+
+    }
 }
+
+
+

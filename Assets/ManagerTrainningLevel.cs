@@ -38,6 +38,11 @@ public class ManagerTrainningLevel : MonoBehaviour {
     //BombBallAnimator to control differents animations
     //public Animator animBombBall;
 
+    //To controll de machinegun
+    public GameObject shootingMachine;
+
+   
+
 
     void Awake () {
         
@@ -46,7 +51,8 @@ public class ManagerTrainningLevel : MonoBehaviour {
         listNameBomBall = new List<string>();
         levelText = GameObject.Find("LevelText").GetComponent<Text>();
         levelText.text = "Trankies' Trainning";
-        //animBombBall = GameObject.Find("BombBall").GetComponent<Animator>();
+        
+        
 
 
 
@@ -55,7 +61,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (avalLevel && numLevel <= 10)
+       if (avalLevel && numLevel <= 10)
         {
             if (waitLevelSeconds)
             {
@@ -67,7 +73,8 @@ public class ManagerTrainningLevel : MonoBehaviour {
 
                 //Gui to show the current level
                 levelText.text = "Level: " + numLevel;
-                
+
+
                 //call the function to instantiate bombs per level         
                 BombBallInstantieate(numLevel, positionArea);
             }
@@ -76,6 +83,9 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 11)
         {
             levelText.text = "EXIT LEVEL";
+            StartCoroutine(waitExit());
+
+
         }
         else if (!avalLevel)
         {
@@ -127,16 +137,19 @@ public class ManagerTrainningLevel : MonoBehaviour {
 
         else if (numLevel == 3)
         {
+            shootingMachine.GetComponent<ShootingMachine>().changeMachineStatus();
+            shootingMachine.GetComponent<ShootingMachine>().setMachineProp(3, 1.4f, 200f, 0.6f, 10f);
 
             for (int i = 0; i <= 4; i++)
             {
                 bombBallInstantiate(i);
             }
+
         }
 
         else if (numLevel == 4)
         {
-
+            shootingMachine.GetComponent<ShootingMachine>().setMachineProp(5, 1.2f, 1100f, 0.5f, 9f);
             for (int i = 0; i <= 8; i++)
             {
                 bombBallInstantiate(i);
@@ -145,7 +158,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
 
         else if (numLevel == 5)
         {
-
+            shootingMachine.GetComponent<ShootingMachine>().setMachineProp(10, 1f, 1200f, 0.4f, 9f);
             for (int i = 0; i <= 10; i++)
             {
                 bombBallInstantiate(i);
@@ -154,7 +167,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
 
         else if (numLevel == 6)
         {
-
+            shootingMachine.GetComponent<ShootingMachine>().setMachineProp(12, 0.9f, 1400f, 0.4f, 8f);
             for (int i = 0; i <= 12; i++)
             {
                 bombBallInstantiate(i);
@@ -163,7 +176,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
 
         else if (numLevel == 7)
         {
-
+            shootingMachine.GetComponent<ShootingMachine>().setMachineProp(14, 0.9f, 1400f, 0.3f, 7f);
             for (int i = 0; i <= 14; i++)
             {
                 bombBallInstantiate(i);
@@ -172,7 +185,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
 
         else  if (numLevel == 8)
         {
-
+            shootingMachine.GetComponent<ShootingMachine>().setMachineProp(17, 0.8f, 1500f, 0.3f, 6f);
             for (int i = 0; i <= 16; i++)
             {
                 bombBallInstantiate(i);
@@ -181,7 +194,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
 
         else if (numLevel == 9)
         {
-
+            shootingMachine.GetComponent<ShootingMachine>().setMachineProp(20, 0.6f, 1500f, 0.25f, 4f);
             for (int i = 0; i <= 18; i++)
             {
                 bombBallInstantiate(i);
@@ -190,7 +203,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
 
         else if (numLevel == 10)
         {
-
+            shootingMachine.GetComponent<ShootingMachine>().setMachineProp(22, 0.5f, 1900f, 0.1f, 5f);
             for (int i = 0; i <= 22; i++)
             {
                 bombBallInstantiate(i);
@@ -230,14 +243,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
 
     public void bombExplode(string name) {
 
-        //foreach(string bombToExplode in listNameBomBall)
-        //{
-        //    if (bombToExplode == name) {
-        //        listNameBomBall.Remove(name);                
-        //        Destroy(GameObject.Find(name));
-        //    }
-        //}
-
+      
         listNameBomBall.Remove(name);
         Destroy(GameObject.Find(name));
 
@@ -257,6 +263,14 @@ public class ManagerTrainningLevel : MonoBehaviour {
         yield return new WaitForSeconds(5f);
         noWaitLevelSeconds = true;
         
+    }
+
+    IEnumerator waitExit()
+    {
+        
+        yield return new WaitForSeconds(5f);
+        Application.LoadLevel("Spaceship_Level");
+
     }
 
 
