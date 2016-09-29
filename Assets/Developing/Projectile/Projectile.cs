@@ -7,7 +7,8 @@ public class Projectile : MonoBehaviour {
 	public string owner;
 	private float shotcounter;
 	private bool shotcounterset = false;
-	public GameObject birth;
+    public int damagePerShot = 1;
+    public GameObject birth;
 	public GameObject projexplosion;
 
 	public GameObject explosion;
@@ -55,10 +56,22 @@ public class Projectile : MonoBehaviour {
 	
 
 	void OnCollisionEnter(Collision collisionInfo) {
-		if (mainmenu == false)
+
+        TrankiesHealth health = collisionInfo.collider.GetComponent<TrankiesHealth>();
+        if (health != null && collisionInfo.gameObject.tag == "Player")
+        {
+            health.TakeDamage(damagePerShot, collisionInfo.transform.position);
+            Debug.Log("Take Damage");
+
+        }
+
+        if (mainmenu == false)
 		{
 		if (collisionInfo.collider.tag == "Player") {
-			if (owner != collisionInfo.collider.name) {
+
+              
+
+                if (owner != collisionInfo.collider.name) {
 				switch (owner) {
 				case "Player_1": 
 					GameControl.GM.p1points = GameControl.GM.p1points + 3;
@@ -115,7 +128,11 @@ public class Projectile : MonoBehaviour {
 		if (collisionInfo.collider.tag == "Tutorial") {
 			Destroy (gameObject);
 		}
-	}
-	}
+
+            
+        }
+
+        
+    }
 
 }
