@@ -26,7 +26,7 @@ public class Shoots : MonoBehaviour
 
     public AudioClip fire;
 
-
+    //public ParticleSystem shootEffect;
     public Animator anim;
     int shootHash = Animator.StringToHash("shoot");
 
@@ -48,7 +48,7 @@ public class Shoots : MonoBehaviour
 
         // Matches with the script for Kinect
         kinect = this.GetComponent<GestureListener>();
-
+        //shootEffect = GetComponent<ParticleSystem>();
 
         if (string.Compare(Application.loadedLevelName, "Spaceship_Level") == 0 && kinect.tracked == false)
         {
@@ -98,6 +98,7 @@ public class Shoots : MonoBehaviour
         if (kinect.SetFire() || ((Input.GetButton("Fire1_P1") || Input.GetButton("Fire1_P2")) && gameObject.name == "Player_" + numplayer))
         {
             gameObject.SendMessageUpwards("Fire");
+            //shootEffect.Play();
             //anim.SetTrigger(shootHash);
         }
 
