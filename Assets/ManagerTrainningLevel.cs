@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class ManagerTrainningLevel : MonoBehaviour {
 
@@ -41,7 +42,12 @@ public class ManagerTrainningLevel : MonoBehaviour {
     //To controll de machinegun
     public GameObject shootingMachine;
 
-   
+    //Capture the player loaded
+    public TrankiesHealth health;
+
+    //Bool to controll the spawn to another scene
+    bool canLoad = false;
+
 
 
     void Awake () {
@@ -51,15 +57,22 @@ public class ManagerTrainningLevel : MonoBehaviour {
         listNameBomBall = new List<string>();
         levelText = GameObject.Find("LevelText").GetComponent<Text>();
         levelText.text = "Trankies' Trainning";
-        
-        
-
-
+        TrankiesHealth health = new TrankiesHealth();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (playerDead()) {
+            StartCoroutine(waitDieRestart());
+            levelText.text = "GAME OVER";
+
+            if (canLoad) {
+                          
+                Application.LoadLevel("Training_Level");
+            }
+        }
 
        if (avalLevel && numLevel <= 10)
         {
@@ -83,7 +96,7 @@ public class ManagerTrainningLevel : MonoBehaviour {
         else if (numLevel == 11)
         {
             levelText.text = "EXIT LEVEL";
-            StartCoroutine(waitExit());
+            StartCoroutine(waitFinishiExit());
 
 
         }
@@ -265,12 +278,24 @@ public class ManagerTrainningLevel : MonoBehaviour {
         
     }
 
-    IEnumerator waitExit()
+    IEnumerator waitDieRestart()
     {
         
         yield return new WaitForSeconds(5f);
+        canLoad = true;
+
+    }
+
+    IEnumerator waitFinishiExit()
+    {
+
+        yield return new WaitForSeconds(5f);
         Application.LoadLevel("Spaceship_Level");
 
+    }
+
+    public bool playerDead() {
+        return health.m_Dead;
     }
 
 
