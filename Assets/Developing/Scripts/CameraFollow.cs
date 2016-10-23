@@ -7,15 +7,14 @@ public class CameraFollow : MonoBehaviour {
 	public Vector3 halfwayMultiplier = new Vector3(0.5f, 0.5f, -30);
 	private Vector3 halfway;
 	private float distance;
-
 	public float zoom = 1;
-
 	public Transform p1, p2;
 	public float distanceScale = 1.0f;
-
 	public float smooth = 0.75f;
-
 	private Camera cam;
+
+    //Tranform for CameraShake script
+    private Transform tranformShake;
 
 
     void Start() {
@@ -52,11 +51,11 @@ public class CameraFollow : MonoBehaviour {
 		// using field of view
 		halfway.z = halfwayMultiplier.z; // maintain z position
 
-		cam.transform.position = Vector3.Lerp(cam.transform.position, halfway, smooth * Time.deltaTime); //halfway;
-
-		//calculate and put the value between 20 and 60
-		// using FloatUpdate to smoothie the camera movement
-		cam.fieldOfView = iTween.FloatUpdate(cam.fieldOfView, Mathf.Clamp((40 * distance * distanceScale + 1020) / 57, 20, 60 * distanceScale) + 5, smooth)*zoom;
+        cam.transform.position = Vector3.Lerp(cam.transform.position, halfway, smooth * Time.deltaTime); //halfway;
+        tranformShake = cam.transform;
+        //calculate and put the value between 20 and 60
+        // using FloatUpdate to smoothie the camera movement
+        cam.fieldOfView = iTween.FloatUpdate(cam.fieldOfView, Mathf.Clamp((40 * distance * distanceScale + 1020) / 57, 20, 60 * distanceScale) + 5, smooth)*zoom;
 	}
 
 	void OnEnable() {
@@ -78,4 +77,9 @@ public class CameraFollow : MonoBehaviour {
 		this.enabled = true;
 		Debug.Log("Restart CameraFollow");
 	}
+
+    public Transform getTransformShake() {
+        Debug.Log("Posicao camera follow : "+ tranformShake.position.ToString());
+        return tranformShake;
+    }
 }
