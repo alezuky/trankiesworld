@@ -5,16 +5,23 @@ public class CameraShake : MonoBehaviour {
     public float duration;
     public float magnitude;
     public CameraFollow cameraFollow;
+    public bool shake = false;
     Transform positionCamera;
 
+
+    void Awake() {
+        cameraFollow = GetComponent<CameraFollow>();
+    }
    
     void Update() {
-        StartCoroutine(Shake());
+
+        if(shake)
+            StartCoroutine(Shake());
     }
 
     IEnumerator Shake()
     {
-        CameraFollow cameraFollow = new CameraFollow();
+        
         float elapsed = 0.0f;
 
         //Vector3 originalCamPos = Camera.main.transform.position;
@@ -35,7 +42,8 @@ public class CameraShake : MonoBehaviour {
             x *= magnitude * damper;
             y *= magnitude * damper;
 
-            Camera.main.transform.position = new Vector3(x, y, originalCamPos.z);
+            //Camera.main.transform.position = new Vector3(x, y, originalCamPos.z);
+            positionCamera.position = new Vector3(x, y, originalCamPos.z);
 
             yield return null;
         }

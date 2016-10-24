@@ -18,6 +18,7 @@ public class CameraFollow : MonoBehaviour {
 
 
     void Start() {
+
 		// set screen scale to open the field of view
 		float screenRatio = (float) Screen.width / (float) Screen.height;
 		cam = GetComponent<Camera>();
@@ -43,7 +44,9 @@ public class CameraFollow : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		distance = Vector3.Distance(p1.position, p2.position);
+
+
+        distance = Vector3.Distance(p1.position, p2.position);
 
 		halfway.x = (p1.position.x + p2.position.x) * halfwayMultiplier.x;
 		halfway.y = (p1.position.y + p2.position.y) * halfwayMultiplier.y;
@@ -82,4 +85,7 @@ public class CameraFollow : MonoBehaviour {
         Debug.Log("Posicao camera follow : "+ tranformShake.position.ToString());
         return tranformShake;
     }
+
+    
+
 }
