@@ -33,6 +33,8 @@ public class Shoots : MonoBehaviour
     public Vector3 useDirection;
     public int numplayer = 0;
 
+    public TargetFollowMouse targetFollowMouse;
+
     IEnumerator SafetyTime()
     {
         float waitTime = 0.1f;
@@ -112,12 +114,14 @@ public class Shoots : MonoBehaviour
             if(gameObject.GetComponent<CharController>().enabled == true)
             {
                 useDirection = gameObject.GetComponent<CharController>().mouseDirection;
+                
             }
             else
             {
                 Vector3 mousePos = Camera.main.ScreenPointToRay(Input.mousePosition).direction * (-Camera.main.transform.position.z) + Camera.main.transform.position;
                 mousePos.z = 0;
                 useDirection = (mousePos - transform.position).normalized;
+                
             }
 
         }
@@ -128,11 +132,12 @@ public class Shoots : MonoBehaviour
 
         if (Physics.Raycast(transform.position, useDirection, out hit))
         {
+            targetFollowMouse.setPositionTarget(hit);
             //Physics.IgnoreCollision (instprojectile.collider, transform.root.collider);
             //Debug.Log("Poiting");
             if (firstShoot)
             {
-
+                
 				//if (rays[raycount]) Destroy(rays[raycount]);
 
                 rays[raycount] = Instantiate(ray, firelocal, Quaternion.LookRotation(useDirection)) as GameObject;
@@ -156,6 +161,7 @@ public class Shoots : MonoBehaviour
             scale.z = hit.distance;
             rays[raycount].transform.localScale = scale;
             //size += hit.distance;
+            
 
 
 
